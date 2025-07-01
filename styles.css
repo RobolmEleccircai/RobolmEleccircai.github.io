@@ -1,3 +1,7 @@
+/* 引入 Google Fonts (确保在 HTML <head> 中也引入了) */
+/* font-family: 'Montserrat', sans-serif; (用于标题和重要文本) */
+/* font-family: 'Lato', sans-serif; (用于正文) */
+
 /* Reset + 基础设置 */
 * {
     box-sizing: border-box;
@@ -5,40 +9,55 @@
     padding: 0;
   }
   body {
-    font-family: Arial, sans-serif;
-    background: #fff;
+    font-family: 'Lato', sans-serif; /* 更改正文默认字体 */
+    background: #f0f2f5; /* 浅灰色背景，更柔和 */
     color: #333;
     display: flex;
     min-height: 100vh;
-    line-height: 1.6;
+    line-height: 1.7; /* 增加行高，提升可读性 */
+    transition: background-color 0.4s ease, color 0.4s ease; /* 平滑过渡主题切换 */
   }
+  
+  /* 暗黑模式 */
   .dark-mode {
-    background-color: #121212;
+    background-color: #282c34; /* 深色背景 */
     color: #e0e0e0;
+  }
+  .dark-mode a {
+    color: #e0e0e0; /* 暗黑模式下链接颜色 */
   }
   
   /* 侧边栏 */
   .sidebar {
-    width: 220px;
-    background-color: #f7f7f7;
-    padding: 20px;
+    width: 240px; /* 稍微增大侧边栏宽度，容纳更多设计元素 */
+    background-color: #ffffff; /* 白色背景 */
+    padding: 30px 20px; /* 增加内边距 */
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 1px solid #ddd;
-    transition: background-color 0.3s, color 0.3s;
+    border-right: 1px solid #e0e0e0; /* 柔和的边框 */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05); /* 轻微的右侧阴影，增加层次感 */
+    transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
   }
   .dark-mode .sidebar {
-    background-color: #1e1e1e;
-    border-color: #444;
+    background-color: #21252b; /* 暗黑模式侧边栏背景 */
+    border-color: #3a3f47;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
   }
+  
   .profile {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 10px auto;
+    width: 140px; /* 稍微增大头像尺寸 */
+    height: 140px;
+    margin: 0 auto 20px auto; /* 增加与姓名的间距 */
     overflow: hidden;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 4px solid #4CAF50; /* 醒目的边框颜色 (绿色) */
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.6); /* 绿色光晕效果 */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .dark-mode .profile {
+    border: 4px solid #66bb6a; /* 暗黑模式下边框颜色 */
+    box-shadow: 0 0 15px rgba(102, 187, 106, 0.4);
   }
   .profile-pic {
     width: 100%;
@@ -46,37 +65,77 @@
     object-fit: cover;
   }
   .profile-name {
-    font-size: 1.4rem;
-    font-weight: bold;
+    font-family: 'Montserrat', sans-serif; /* 姓名使用不同字体 */
+    font-size: 1.8rem; /* 增大字体 */
+    font-weight: 700; /* 更粗的字重 */
     color: #333;
+    margin-bottom: 30px; /* 增加与链接列表的间距 */
+    letter-spacing: 0.5px; /* 字母间距 */
+    text-align: center;
   }
   .dark-mode .profile-name {
-    color: #ddd;
+    color: #f0f0f0;
   }
-  .sidebar ul {
+  
+  .sidebar-links ul { /* 新增的 div 包裹的 ul */
     list-style: none;
     width: 100%;
   }
-  .sidebar ul li {
-    margin: 15px 0;
+  .sidebar-links ul li {
+    margin: 8px 0; /* 调整链接列表项的垂直间距，更紧凑 */
   }
+  
+  /* 侧边栏链接（Flexbox 对齐核心及美化） */
   .sidebar ul li a {
-    color: #333;
+    color: #555; /* 默认链接颜色 */
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600; /* 链接字体加粗 */
     display: flex;
     align-items: center;
-    gap: 8px;
-    transition: color 0.3s;
+    padding: 10px 15px; /* 增加内边距，使点击区域更大 */
+    border-radius: 8px; /* 稍微大一点的圆角 */
+    transition: all 0.3s ease; /* 平滑过渡所有属性 */
+    position: relative; /* 用于伪元素 */
+    overflow: hidden; /* 隐藏超出边界的伪元素 */
   }
+  
+  .sidebar ul li a i {
+    width: 30px; /* 固定图标区域宽度，稍微增大 */
+    text-align: center;
+    margin-right: 12px; /* 图标与文本的间距 */
+    flex-shrink: 0;
+    font-size: 1.2em; /* 增大图标字体大小 */
+    color: #666; /* 图标颜色 */
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar ul li a span {
+    flex-grow: 1;
+  }
+  
   .sidebar ul li a:hover {
-    color: #007acc;
+    color: #ffffff; /* 悬停时文本变白 */
+    background-color: #4CAF50; /* 悬停时背景色 */
+    transform: translateX(5px); /* 悬停时轻微右移 */
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4); /* 悬停时增加阴影 */
   }
+  .sidebar ul li a:hover i {
+    color: #ffffff; /* 悬停时图标变白 */
+  }
+  
   .dark-mode .sidebar ul li a {
-    color: #ccc;
+    color: #c0c0c0;
+  }
+  .dark-mode .sidebar ul li a i {
+    color: #c0c0c0;
   }
   .dark-mode .sidebar ul li a:hover {
-    color: #58a6ff;
+    color: #ffffff;
+    background-color: #66bb6a;
+    box-shadow: 0 5px 15px rgba(102, 187, 106, 0.4);
+  }
+  .dark-mode .sidebar ul li a:hover i {
+    color: #ffffff;
   }
   
   /* 主体内容和导航 */
@@ -85,120 +144,362 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #f0f2f5; /* 主内容区背景 */
+    transition: background-color 0.4s ease;
   }
+  .dark-mode .main {
+    background-color: #282c34;
+  }
+  
   nav.navbar {
-    background-color: #f0f0f0;
-    border-bottom: 1px solid #ddd;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* 顶部导航栏阴影 */
+    height: 80px; /* 固定导航栏高度，方便对齐 */
+    display: flex; /* 确保导航栏内部也是flex容器 */
+    align-items: center; /* 确保导航链接垂直居中 */
+    justify-content: center; /* 确保导航链接水平居中 */
+    position: sticky; /* 粘性导航栏 */
+    top: 0;
+    z-index: 999; /* 确保在其他内容之上 */
+    transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
   }
   .dark-mode nav.navbar {
-    background-color: #1e1e1e;
-    border-color: #444;
+    background-color: #21252b;
+    border-color: #3a3f47;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
+  
   nav.navbar ul {
     display: flex;
     justify-content: center;
     list-style: none;
-    padding: 1rem 0;
-    gap: 2rem;
+    gap: 2.5rem; /* 增加导航链接间距 */
     flex-wrap: wrap;
+    padding: 0; /* 导航 ul 的 padding 应该为 0，因为其父元素 nav.navbar 已经控制了垂直居中 */
   }
   nav.navbar a {
+    font-family: 'Montserrat', sans-serif; /* 导航链接使用不同字体 */
     text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    transition: background 0.3s, color 0.3s;
+    color: #555;
+    font-weight: 600; /* 加粗 */
+    padding: 0.8rem 1.5rem; /* 增加填充 */
+    border-radius: 25px; /* 更大的圆角，胶囊状按钮 */
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
   }
   nav.navbar a.active {
-    background-color: #333;
+    background-color: #4CAF50; /* 激活背景色 */
     color: white;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4); /* 激活阴影 */
+  }
+  nav.navbar a:hover:not(.active) {
+    background-color: #e0e0e0; /* 悬停背景色 */
+    color: #333;
+    transform: translateY(-2px); /* 悬停时轻微上移 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
   .dark-mode nav.navbar a {
-    color: #ccc;
+    color: #c0c0c0;
   }
   .dark-mode nav.navbar a.active {
-    background-color: #58a6ff;
+    background-color: #66bb6a;
     color: #fff;
+    box-shadow: 0 4px 12px rgba(102, 187, 106, 0.4);
+  }
+  .dark-mode nav.navbar a:hover:not(.active) {
+    background-color: #3a3f47;
+    color: #f0f0f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   }
   
   /* 内容区：居中容器 + 左对齐内容 */
   main#content {
     flex-grow: 1;
-    padding: 20px;
-    width: 900px;
-    margin: 0 auto 40px;
-    text-align: left;
+    padding: 40px; /* 增大内容区内边距 */
+    max-width: 960px; /* 增大最大宽度 */
+    width: 100%;
+    margin: 30px auto; /* 增加上下间距 */
+    background-color: #ffffff; /* 内容区背景 */
+    border-radius: 10px; /* 圆角边框 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* 突出内容区 */
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  }
+  .dark-mode main#content {
+    background-color: #21252b;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   }
   
-  /* 每个 section 居中容器，内容左对齐 */
+  /* 每个 section 样式 */
   main#content section {
-    max-width: 700px;
-    margin: 0 auto 2em;
+    max-width: 800px; /* 限制 section 内部内容宽度 */
+    margin: 0 auto 3em; /* 增大 section 间距 */
     text-align: left;
   }
   
-  /* 列表统一设置 */
+  /* 标题样式 */
+  main#content h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem; /* 增大标题 */
+    color: #333;
+    margin-bottom: 25px; /* 增加底部间距 */
+    position: relative;
+    padding-bottom: 10px; /* 下划线空间 */
+    letter-spacing: 0.8px;
+  }
+  main#content h1::after { /* 标题下划线 */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px; /* 下划线长度 */
+    height: 4px; /* 下划线粗细 */
+    background-color: #4CAF50; /* 下划线颜色 */
+    border-radius: 2px;
+  }
+  .dark-mode main#content h1 {
+    color: #f0f0f0;
+  }
+  .dark-mode main#content h1::after {
+    background-color: #66bb6a;
+  }
+  
+  /* 段落样式 */
+  main#content p {
+    font-size: 1.1rem; /* 增大段落字体 */
+    line-height: 1.8; /* 调整段落行高 */
+    margin-bottom: 1.5em; /* 段落间距 */
+    color: #444;
+  }
+  .dark-mode main#content p {
+    color: #c0c0c0;
+  }
+  
+  /* 列表样式 */
   main#content ul,
   main#content ol {
-    list-style-position: inside;
-    padding-left: 0;
+    list-style-position: outside; /* 列表符号在外侧 */
+    padding-left: 25px; /* 增加列表缩进 */
+    margin-bottom: 1.5em;
   }
   main#content li {
-    padding: 0.25em 0;
+    padding: 0.5em 0; /* 列表项间距 */
+    font-size: 1.05rem;
+    color: #444;
   }
+  .dark-mode main#content li {
+    color: #c0c0c0;
+  }
+  /* 自定义列表项符号 - 示例 */
+  main#content ul li::before {
+    content: "•"; /* 圆点 */
+    color: #4CAF50; /* 强调色 */
+    display: inline-block;
+    width: 1em; /* 符号宽度 */
+    margin-left: -1em; /* 负外边距抵消缩进 */
+  }
+  main#content ol li {
+    list-style-type: decimal; /* 默认数字 */
+  }
+  
   
   /* 图片默认靠左 */
   main#content img {
     display: block;
-    margin-left: 0;
-    margin-right: auto;
+    margin: 2em 0; /* 增加图片上下间距 */
     max-width: 100%;
     height: auto;
+    border-radius: 8px; /* 图片圆角 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 图片阴影 */
   }
   
   /* 主题切换按钮 */
   .toggle-theme {
     position: fixed;
-    top: 10px;
-    right: 20px;
-    background: none;
-    border: none;
+    top: 20px; /* 调整此值以达到视觉上的水平对齐，可根据实际效果微调 */
+    right: 30px;
+    background-color: #f0f0f0; /* 添加背景色 */
+    border: 1px solid #ddd; /* 添加边框 */
+    border-radius: 50%; /* 圆形按钮 */
+    width: 45px; /* 固定宽度 */
+    height: 45px; /* 固定高度 */
+    display: flex; /* 使用 Flexbox 居中图标 */
+    justify-content: center; /* 水平居中图标 */
+    align-items: center; /* 垂直居中图标 */
     cursor: pointer;
-    font-size: 1.3em;
-    color: inherit;
+    font-size: 1.3em; /* 调整图标大小 */
+    color: #777; /* 默认颜色 */
     z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加轻微阴影 */
+    transition: all 0.3s ease; /* 平滑过渡所有属性 */
+  }
+  
+  .dark-mode .toggle-theme {
+    background-color: #2a2a2a; /* 暗黑模式背景色 */
+    border-color: #444; /* 暗黑模式边框色 */
+    color: #c0c0c0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .toggle-theme:hover {
+    background-color: #e0e0e0; /* 悬停背景色 */
+    color: #4CAF50; /* 悬停颜色 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* 悬停阴影 */
+    transform: rotate(15deg); /* 悬停旋转 */
+  }
+  
+  .dark-mode .toggle-theme:hover {
+    background-color: #3a3f47;
+    color: #66bb6a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
   
   /* 响应式布局 */
-  @media (max-width: 900px) {
-    body {
-      flex-direction: column;
-    }
+  @media (max-width: 992px) { /* 调整断点 */
     .sidebar {
       width: 100%;
-      flex-direction: row;
-      padding: 10px 20px;
-      justify-content: space-around;
+      flex-direction: row; /* 在中等屏幕及以下，侧边栏内容横向排列 */
+      padding: 15px 20px;
+      justify-content: space-between; /* 元素分散对齐 */
       border-right: none;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #e0e0e0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
-    .profile {
-      margin-bottom: 0;
+    .dark-mode .sidebar {
+      border-bottom-color: #3a3f47;
+    }
+    .sidebar .profile {
+      width: 80px; /* 缩小头像 */
+      height: 80px;
+      margin: 0; /* 移除自动边距 */
+    }
+    .profile-name {
+      display: none; /* 隐藏姓名，节省空间 */
+    }
+    .sidebar-links {
+      width: auto; /* 自动宽度 */
+      flex-grow: 1; /* 占据剩余空间 */
+      margin-left: 20px; /* 与头像间距 */
+    }
+    .sidebar-links ul {
+      padding-top: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start; /* 链接靠左对齐 */
+      gap: 15px 25px; /* 行列间距 */
+    }
+    .sidebar ul li {
+      margin: 0;
+    }
+    .sidebar ul li a {
+      padding: 8px 12px;
+    }
+    .sidebar ul li a i {
+      width: auto; /* 图标宽度自适应 */
+      margin-right: 8px; /* 减小间距 */
+      font-size: 1em;
+    }
+  
+    nav.navbar {
+      height: auto; /* 在小屏幕下，导航栏高度自适应 */
+      padding: 0.8rem 0; /* 恢复垂直内边距 */
     }
     nav.navbar ul {
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
+      gap: 1.5rem; /* 减小导航链接间距 */
+      /* padding: 0.8rem 0;  此行已移到 nav.navbar */
     }
-  }
-
-  @media (max-width: 920px) {
+    nav.navbar a {
+      padding: 0.6rem 1rem; /* 减小导航链接填充 */
+      font-size: 0.95rem;
+    }
+  
     main#content {
-      width: 100%;
-      padding: 10px;
-      margin: 0 auto 20px;
+      padding: 25px; /* 减小内容区内边距 */
+      margin: 20px auto;
+      border-radius: 8px;
+    }
+    main#content h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    main#content h1::after {
+      width: 50px;
+    }
+    main#content p {
+      font-size: 1rem;
     }
   }
   
+  @media (max-width: 768px) { /* 手机屏幕 */
+    .toggle-theme {
+      top: 15px; /* 在手机屏幕下进一步调整位置 */
+      right: 15px;
+      width: 35px; /* 进一步缩小 */
+      height: 35px;
+      font-size: 1.1em;
+    }
+    .sidebar {
+      flex-direction: column; /* 手机上再次变为垂直，头像姓名可以显示 */
+      align-items: center;
+      padding: 15px;
+    }
+    .sidebar .profile {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 15px;
+    }
+    .profile-name {
+      display: block; /* 再次显示姓名 */
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .sidebar-links {
+      width: 100%;
+      margin-left: 0;
+    }
+    .sidebar-links ul {
+      justify-content: center; /* 链接居中 */
+      gap: 10px 15px;
+    }
+    .sidebar ul li a {
+      padding: 8px 10px;
+    }
+    .sidebar ul li a i {
+      width: 25px;
+      margin-right: 8px;
+    }
+    nav.navbar ul {
+      flex-direction: column; /* 导航栏变为垂直列表 */
+      gap: 0.8rem;
+      padding: 0.5rem 0; /* 适应更小的屏幕 */
+    }
+    nav.navbar a {
+      width: 80%; /* 导航链接占大部分宽度 */
+      text-align: center;
+      padding: 0.7rem 1rem;
+      margin: 0 auto; /* 居中 */
+    }
+    main#content {
+      padding: 15px;
+      margin: 15px auto;
+    }
+    main#content h1 {
+      font-size: 2.2rem;
+    }
+  }
   
+  @media (max-width: 480px) { /* 更小的手机屏幕 */
+    .profile-name {
+      font-size: 1.3rem;
+    }
+    .sidebar ul li a span {
+      font-size: 0.9em; /* 缩小侧边栏链接文字 */
+    }
+    main#content h1 {
+      font-size: 2rem;
+    }
+    main#content p, main#content li {
+      font-size: 0.95rem;
+    }
+  }
