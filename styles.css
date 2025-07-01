@@ -1,0 +1,204 @@
+/* Reset + 基础设置 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #333;
+    display: flex;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+  .dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  
+  /* 侧边栏 */
+  .sidebar {
+    width: 220px;
+    background-color: #f7f7f7;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #ddd;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .dark-mode .sidebar {
+    background-color: #1e1e1e;
+    border-color: #444;
+  }
+  .profile {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 10px auto;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+  .profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .profile-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+  }
+  .dark-mode .profile-name {
+    color: #ddd;
+  }
+  .sidebar ul {
+    list-style: none;
+    width: 100%;
+  }
+  .sidebar ul li {
+    margin: 15px 0;
+  }
+  .sidebar ul li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+  }
+  .sidebar ul li a:hover {
+    color: #007acc;
+  }
+  .dark-mode .sidebar ul li a {
+    color: #ccc;
+  }
+  .dark-mode .sidebar ul li a:hover {
+    color: #58a6ff;
+  }
+  
+  /* 主体内容和导航 */
+  .main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  nav.navbar {
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ddd;
+  }
+  .dark-mode nav.navbar {
+    background-color: #1e1e1e;
+    border-color: #444;
+  }
+  nav.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 1rem 0;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  nav.navbar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s;
+  }
+  nav.navbar a.active {
+    background-color: #333;
+    color: white;
+  }
+  .dark-mode nav.navbar a {
+    color: #ccc;
+  }
+  .dark-mode nav.navbar a.active {
+    background-color: #58a6ff;
+    color: #fff;
+  }
+  
+  /* 内容区：居中容器 + 左对齐内容 */
+  main#content {
+    flex-grow: 1;
+    padding: 20px;
+    width: 900px;
+    margin: 0 auto 40px;
+    text-align: left;
+  }
+  
+  /* 每个 section 居中容器，内容左对齐 */
+  main#content section {
+    max-width: 700px;
+    margin: 0 auto 2em;
+    text-align: left;
+  }
+  
+  /* 列表统一设置 */
+  main#content ul,
+  main#content ol {
+    list-style-position: inside;
+    padding-left: 0;
+  }
+  main#content li {
+    padding: 0.25em 0;
+  }
+  
+  /* 图片默认靠左 */
+  main#content img {
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* 主题切换按钮 */
+  .toggle-theme {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3em;
+    color: inherit;
+    z-index: 1000;
+  }
+  
+  /* 响应式布局 */
+  @media (max-width: 900px) {
+    body {
+      flex-direction: column;
+    }
+    .sidebar {
+      width: 100%;
+      flex-direction: row;
+      padding: 10px 20px;
+      justify-content: space-around;
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+    }
+    .profile {
+      margin-bottom: 0;
+    }
+    nav.navbar ul {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 920px) {
+    main#content {
+      width: 100%;
+      padding: 10px;
+      margin: 0 auto 20px;
+    }
+  }
+  
+  

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Name | Research Master's Applicant</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    async function showSection(sectionId) {
+      try {
+        const res = await fetch(sectionId + '.html');
+        if (!res.ok) {
+          throw new Error('Failed to load ' + sectionId);
+        }
+        const html = await res.text();
+        document.getElementById('content').innerHTML = html;
+
+        // 高亮导航
+        document.querySelectorAll('.navbar a').forEach(link => {
+          link.classList.remove('active');
+        });
+        const activeLink = document.querySelector(`.navbar a[data-section="${sectionId}"]`);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      } catch (e) {
+        document.getElementById('content').innerHTML = '<p>内容加载失败</p>';
+        console.error(e);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      showSection('about');
+    });
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <button class="toggle-theme" onclick="toggleDarkMode()" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+
+  <div class="sidebar" role="complementary" aria-label="Sidebar with profile and links">
+    <div class="profile">
+      <img src="profile.jpg" alt="Your Photo" class="profile-pic" />
+      <h2 class="profile-name">Your Name</h2>
+    </div>
+    <ul>
+      <li><a href="mailto:your@email.com"><i class="fas fa-envelope"></i> Email</a></li>
+      <li><a href="cv.pdf" target="_blank"><i class="fas fa-file-alt"></i> CV</a></li>
+      <li><a href="https://github.com/yourgithub" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a></li>
+      <li><a href="https://space.bilibili.com/yourid" target="_blank" rel="noopener"><i class="fas fa-video"></i> Bilibili</a></li>
+    </ul>
+  </div>
+
+  <div class="main" role="main">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="#" data-section="about" onclick="showSection('about'); return false;">About Me</a></li>
+        <li><a href="#" data-section="publications" onclick="showSection('publications'); return false;">Publications</a></li>
+        <li><a href="#" data-section="projects" onclick="showSection('projects'); return false;">Projects</a></li>
+        <li><a href="#" data-section="awards" onclick="showSection('awards'); return false;">Awards</a></li>
+        <li><a href="#" data-section="hobbies" onclick="showSection('hobbies'); return false;">Hobbies</a></li>
+        <li><a href="#" data-section="blogs" onclick="showSection('blogs'); return false;">Blogs</a></li>
+      </ul>
+    </nav>
+
+    <main id="content" tabindex="-1">
+      <!-- 动态加载内容 -->
+    </main>
+  </div>
+</body>
+</html>
