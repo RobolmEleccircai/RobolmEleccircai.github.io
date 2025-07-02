@@ -1,174 +1,163 @@
-[中文版说明](README_CN.md)
+
+[中文版说明 →](README_CN.md)
 
 ---
 
-# Modern Academic Personal Homepage
+# Modern Academic Personal Homepage Template
 
-A zero-dependency, configuration-driven, and easy-to-maintain modern personal homepage. Designed for academics, researchers, and students. Ready to be deployed on GitHub Pages with a single click.
+A **zero-dependency**, **config-driven**, and **easy-to-maintain** personal homepage template designed for researchers, academics, and students. Deploy to GitHub Pages in just one click.
 
-**[Live Demo](https://your-github-username.github.io/your-repo-name/)**  _(Replace with your link)_
+👉 **[Live Demo](https://your-github-username.github.io/your-repo-name/)** _(Replace with your actual link)_
+
+---
 
 ## ✨ Features
 
-- **Configuration-Driven**: Edit your personal info, links, and navigation in a single `config.js` file without touching complex HTML.
-- **Modular Content**: Each page's content is stored in a separate `sections/*.html` file for clean management.
-- **SPA-like Experience**: Asynchronously loads page content for a smooth, no-refresh navigation experience.
-- **Dark Mode**: Built-in toggle for dark/light themes with user preference persistence.
-- **Zero-Dependency**: Pure HTML/CSS/JS. No build process needed. Just download and use.
-- **Desktop-First Layout**: Optimized for desktop viewing. The layout is preserved on mobile via scaling to ensure content does not reflow.
-- **Fault-Tolerant**: Automatically displays placeholders for missing images to prevent broken layouts.
+- **Config-Driven**: Easily modify all personal info, links, and page sections from `config.js`.
+- **Modular Content**: Each section is written as an independent HTML file under `/sections/`.
+- **Single-Page Experience**: Smooth page transitions using asynchronous loading, no reloads.
+- **Dark Mode**: Built-in toggleable light/dark theme, remembers user preferences.
+- **No Build Required**: Pure HTML/CSS/JS, no frameworks or dependencies. Just download and go.
+- **Desktop-First Design**: Optimized for desktop viewing; mobile users will see the full layout via scaling (not reflow).
+- **Fail-Safe UI**: Missing images automatically show fallback placeholders to prevent layout breakage.
 
-**GITHUB HOMEPAGE-PROJECT/**
+---
+
+## 📁 Project Structure
+
+```
+PROJECT_ROOT/
 ├── assets/
-│ ├── css/
-│ │ └── style.css # 主样式表，负责所有视觉元素。
-│ ├── files/
-│ │ └── (例如 cv.pdf) # 用于存放你的简历和其他文件。
-│ ├── img/
-│ │ └── (例如 profile.jpg)# 用于存放你的头像、项目图片等。
-│ └── js/
-│ ├── config.js # ★ 核心配置文件：所有个人数据和设置都在这里。
-│ ├── app.js # 负责从 config.js 读取数据并填充到页面上。
-│ ├── router.js # 负责异步加载各个板块的内容，实现单页切换效果。
-│ └── main.js # 主脚本，用于初始化暗黑模式等功能。
-├── sections/ # 存放每个导航页面内容的文件夹。
-│ ├── about.html
-│ ├── awards.html
-│ ├── projects.html
-│ └── ... (其他页面)
-├── index.html # 项目的入口 HTML 文件。
-├── README.md # 英文版项目说明。
-└── README_CN.md # 中文版项目说明。
+│   ├── css/
+│   │   └── style.css         # Main stylesheet
+│   ├── files/
+│   │   └── (e.g. cv.pdf)     # Your resume and downloadable files
+│   ├── img/
+│   │   └── (e.g. profile.jpg) # Profile picture and project images
+│   └── js/
+│       ├── config.js         # ★ Core configuration: your data & links
+│       ├── app.js            # Applies data to DOM
+│       ├── router.js         # Handles SPA-like navigation
+│       └── main.js           # Theme switch, initialization
+├── sections/
+│   ├── about.html
+│   ├── awards.html
+│   ├── projects.html
+│   └── ... (other pages)
+├── index.html                # Entry point
+├── README.md                 # English README
+└── README_CN.md              # 中文版说明
+```
 
 ---
 
 ## 🚀 Quick Start
 
-1. **Fork or Download**: Fork this repository to your GitHub account, or download the ZIP file.
-2. **Enable GitHub Pages (Recommended)**:
-   - In your repository's page, go to `Settings` -> `Pages`.
-   - Under `Build and deployment`, set the `Source` to `Deploy from a branch`.
-   - Set the `Branch` to `main`, the folder to `/ (root)`, and click `Save`.
-   - After a few minutes, your homepage will be live at `https://<your-username>.github.io/<your-repo-name>/`.
-3. **Start Customizing**: Follow the guide below to edit your content. Commit & push your changes to see the updates.
+1. **Fork or Download** this repository.
+2. **Enable GitHub Pages**:
+   - Go to your repo → `Settings` → `Pages`
+   - Under `Build and deployment`, choose:
+     - Source: `Deploy from a branch`
+     - Branch: `main`
+     - Folder: `/ (root)`
+   - Click `Save`. In a few minutes, your homepage will be live at:
+     ```
+     https://<your-username>.github.io/<your-repo-name>/
+     ```
+3. **Start Customizing**:
+   - Modify `assets/js/config.js` for your profile & links
+   - Edit content in `sections/*.html`
 
 ---
 
-## 🛠️ The Ultimate Customization Guide
+## 🛠️ Core Customization
 
-**The Core Concept: Almost all your changes will happen in the `assets/js/config.js` file and the `sections/` folder.**
+**Edit only `assets/js/config.js` and `sections/` to personalize your site.**
 
-### 1. Editing Basic Information (Photo, Name, Sidebar Links)
+### 1. Basic Profile Info
 
-All this information is controlled by the **`assets/js/config.js`** file.
+Open `assets/js/config.js`:
 
-```javascript
+```js
 const config = {
-    // Profile
-    profile: {
-      name: "Your Name", // Change your name here
-      photo: "assets/img/profile.jpg", // Path to your photo
+  profile: {
+    name: "Your Name",              // Your name
+    photo: "assets/img/profile.jpg" // Your profile image
+  },
+  contact: [
+    {
+      name: "Email",
+      icon: "fas fa-envelope",
+      url: "mailto:you@example.com"
     },
-
-    // Sidebar links
-    contact: [
-      {
-        name: "Email",
-        icon: "fas fa-envelope",
-        url: "mailto:your@email.com",
-      },
-      // ... other links
-    ],
-    // ...
-};
+    {
+      name: "GitHub",
+      icon: "fab fa-github",
+      url: "https://github.com/yourusername",
+      target: "_blank"
+    },
+    {
+      name: "LinkedIn",
+      icon: "fab fa-linkedin",
+      url: "https://linkedin.com/in/yourprofile",
+      target: "_blank"
+    }
+  ]
+}
 ```
 
-- **Change Name**: Simply edit the value of `profile.name`.
-- **Change Photo**: Place your photo (e.g., `my-photo.png`) into the `assets/img/` folder, then change the `profile.photo` path to `"assets/img/my-photo.png"`.
-- **Update CV**: Place your PDF resume in the `assets/files/` folder and update the `url` for the CV entry in the `contact` array.
+> 🔧 You can add more links using [Font Awesome Icons](https://fontawesome.com/search?m=free)
 
-### 2. How to Add a New Sidebar Link (e.g., LinkedIn)
+### 2. Navigation Bar
 
-1. Open the **`assets/js/config.js`** file.
-2. In the `contact` array, add a new object following the existing format.
-3. You can find free icons on the [Font Awesome website](https://fontawesome.com/search?m=free).
+To add a new section like “Teaching”:
 
-**Example: Adding a LinkedIn link**
+**Step 1: Add to navigation**
 
-```javascript
-// ...
-contact: [
-  // ... existing links
-  {
-    name: "GitHub",
-    icon: "fab fa-github",
-    url: "https://github.com/yourgithub",
-    target: "_blank",
-  },
-  // Add the new entry here
-  {
-    name: "LinkedIn",
-    icon: "fab fa-linkedin", // Icon from Font Awesome
-    url: "https://www.linkedin.com/in/yourprofile", // Your LinkedIn URL
-    target: "_blank", // Opens in a new tab
-  },
-],
-// ...
-```
-
-### 3. How to Add a New Page to the Top Navigation Bar (e.g., "Teaching")
-
-This is a two-step process:
-
-**Step 1: Add the navigation entry in `config.js`**
-
-Open **`assets/js/config.js`** and add a new entry to the `navigation` array. The `section` value will be the name of the HTML file (e.g., `teaching` corresponds to `teaching.html`).
-
-```javascript
-// ...
+```js
 navigation: [
-    { name: "About Me", section: "about" },
-    { name: "Research", section: "research" },
-    // Add the new entry here
-    { name: "Teaching", section: "teaching" },
-    { name: "Projects", section: "projects" },
-    // ...
-],
-//...
+  { name: "About Me", section: "about" },
+  { name: "Research", section: "research" },
+  { name: "Teaching", section: "teaching" },  // New item
+  { name: "Projects", section: "projects" }
+]
 ```
 
-**Step 2: Create the corresponding HTML content file**
-
-In the **`sections/`** folder, create a new file named **`teaching.html`** and write your content inside. You can copy the basic structure from any other `sections/*.html` file.
-
-**Example content for `sections/teaching.html`:**
+**Step 2: Create a new file**  
+Create `sections/teaching.html` with your content:
 
 ```html
 <section>
-    <h1>Teaching Experience</h1>
-    <p>Below is a summary of my teaching and TA experience:</p>
-    <ul>
-        <li><strong>Teaching Assistant for Course A</strong>, [Your University], Fall 2023</li>
-        <li><strong>Teaching Assistant for Course B</strong>, [Your University], Spring 2024</li>
-    </ul>
+  <h1>Teaching</h1>
+  <ul>
+    <li><strong>Course A TA</strong>, University Name, Fall 2023</li>
+    <li><strong>Course B TA</strong>, University Name, Spring 2024</li>
+  </ul>
 </section>
 ```
 
-**Done!** Commit your changes, refresh your homepage, and the new "Teaching" link will appear in the navigation bar and load the content correctly.
+---
 
-### 4. How to Edit Page Content and Add Images
+### 3. Editing Page Content & Adding Images
 
-- **Editing Text**: Simply open the corresponding HTML file in the `sections/` folder (e.g., `about.html`, `projects.html`) and edit it. You can use standard HTML tags like `<h2>`, `<p>`, `<ul>`, `<li>`, and `<strong>`.
-- **Adding an Image**:
+- Edit `sections/*.html` with basic HTML: `<h1>`, `<p>`, `<ul>`, `<img>`, etc.
+- Place your images in `assets/img/`
+- Use image tags like:
 
-  1. Place your image file (e.g., `my-project-image.jpg`) into the **`assets/img/`** folder.
-  2. In the HTML file where you want the image to appear (e.g., `sections/projects.html`), use a standard `<img>` tag.
+```html
+<img src="assets/img/my-project.jpg" alt="My Project Screenshot">
+```
 
-  **Example: Adding an image to a project description**
+---
 
-  ```html
-  <h2>1. Smart Home Automation Hub</h2>
-  <p>Project description...</p>
-  <!-- Insert the image here -->
-  <img src="assets/img/my-project-image.jpg" alt="A demo of the Smart Home Hub">
-  ```
+## 💡 Tips
+
+- ⚠️ Avoid putting mobile-specific layout code. This template scales down desktop layout on mobile (by design).
+- All styles are in `assets/css/style.css`
+- No frameworks. Pure HTML + CSS + JS
+
+---
+
+## License
+
+This project is licensed under the MIT License. Free to use and modify.
