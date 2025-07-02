@@ -1,9 +1,8 @@
-
 # 现代学术个人主页模板
 
 一个**零依赖**、**配置驱动**、**易于维护**的个人主页模板，专为研究人员、学者和学生设计。只需一键即可部署到 GitHub Pages。
 
-👉 **[在线演示](https://your-github-username.github.io/your-repo-name/)** _(请替换为你的实际链接)_
+👉 **[在线演示](https://robolmeleccircai.github.io/)** _(请替换为你的实际链接)_
 
 ---
 
@@ -119,7 +118,7 @@ navigation: [
 ]
 ```
 
-**步骤 2：创建新文件**  
+**步骤 2：创建新文件**
 新建 `sections/teaching.html` 文件，填入内容：
 
 ```html

@@ -3,8 +3,8 @@
 const config = {
     // 个人资料
     profile: {
-      name: "Your Name", // 在这里修改你的名字
-      photo: "assets/img/profile.jpg", // 你的头像路径
+      name: "Cheng Liao", // 在这里修改你的名字
+      photo: "assets/img/profile.png", // 你的头像路径
     },
   
     // 侧边栏的联系方式和文件链接
@@ -12,7 +12,7 @@ const config = {
       {
         name: "Email",
         icon: "fas fa-envelope", // Font Awesome 图标 class
-        url: "mailto:your@email.com", // 在这里修改你的邮箱
+        url: "robolm_eleccircai@163.com", // 在这里修改你的邮箱
       },
       {
         name: "CV",
@@ -23,13 +23,13 @@ const config = {
       {
         name: "GitHub",
         icon: "fab fa-github",
-        url: "https://github.com/yourgithub", // 在这里修改你的 GitHub 链接
+        url: "https://github.com/RobolmEleccircai", // 在这里修改你的 GitHub 链接
         target: "_blank",
       },
       {
         name: "Bilibili",
         icon: "fab fa-bilibili",
-        url: "https://space.bilibili.com/yourid", // 在这里修改你的 Bilibili 链接
+        url: "https://space.bilibili.com/334016814?spm_id_from=333.1007.0.0", // 在这里修改你的 Bilibili 链接
         target: "_blank",
       },
     ],

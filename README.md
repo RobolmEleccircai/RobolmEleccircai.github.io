@@ -1,4 +1,3 @@
-
 [中文版说明 →](README_CN.md)
 
 ---
@@ -7,7 +6,7 @@
 
 A **zero-dependency**, **config-driven**, and **easy-to-maintain** personal homepage template designed for researchers, academics, and students. Deploy to GitHub Pages in just one click.
 
-👉 **[Live Demo](https://your-github-username.github.io/your-repo-name/)** _(Replace with your actual link)_
+👉 **[Live Demo](https://robolmeleccircai.github.io/)** _(Replace with your actual link)_
 
 ---
 
@@ -123,7 +122,7 @@ navigation: [
 ]
 ```
 
-**Step 2: Create a new file**  
+**Step 2: Create a new file**
 Create `sections/teaching.html` with your content:
 
 ```html
