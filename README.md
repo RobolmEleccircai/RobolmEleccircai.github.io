@@ -18,6 +18,28 @@ A zero-dependency, configuration-driven, and easy-to-maintain modern personal ho
 - **Desktop-First Layout**: Optimized for desktop viewing. The layout is preserved on mobile via scaling to ensure content does not reflow.
 - **Fault-Tolerant**: Automatically displays placeholders for missing images to prevent broken layouts.
 
+**GITHUB HOMEPAGE-PROJECT/**
+├── assets/
+│ ├── css/
+│ │ └── style.css # 主样式表，负责所有视觉元素。
+│ ├── files/
+│ │ └── (例如 cv.pdf) # 用于存放你的简历和其他文件。
+│ ├── img/
+│ │ └── (例如 profile.jpg)# 用于存放你的头像、项目图片等。
+│ └── js/
+│ ├── config.js # ★ 核心配置文件：所有个人数据和设置都在这里。
+│ ├── app.js # 负责从 config.js 读取数据并填充到页面上。
+│ ├── router.js # 负责异步加载各个板块的内容，实现单页切换效果。
+│ └── main.js # 主脚本，用于初始化暗黑模式等功能。
+├── sections/ # 存放每个导航页面内容的文件夹。
+│ ├── about.html
+│ ├── awards.html
+│ ├── projects.html
+│ └── ... (其他页面)
+├── index.html # 项目的入口 HTML 文件。
+├── README.md # 英文版项目说明。
+└── README_CN.md # 中文版项目说明。
+
 ---
 
 ## 🚀 Quick Start
