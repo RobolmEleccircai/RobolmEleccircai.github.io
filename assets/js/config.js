@@ -12,7 +12,7 @@ const config = {
       {
         name: "Email",
         icon: "fas fa-envelope", // Font Awesome 图标 class
-        url: "robolm_eleccircai@163.com", // 在这里修改你的邮箱
+        url: "mailto:robolm_eleccircai@163.com", // 在这里修改你的邮箱
       },
       {
         name: "CV",
