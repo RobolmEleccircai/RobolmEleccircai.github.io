@@ -1,49 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title>Your Name | Research Master's Applicant</title>
-  <!-- 关键：添加 viewport 标签确保响应式适配 -->
-  <meta name="viewport" content="width=1280">
+  <title>Your Name | Academic Homepage</title>
   
+  <meta name="viewport" content="width=1280">
+
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
-  <script defer src="assets/js/router.js"></script>
-  <script defer src="assets/js/main.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <button class="toggle-theme" onclick="toggleDarkMode()" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
 
-  <div class="sidebar" role="complementary" aria-label="Sidebar with profile and links">
-    <div class="profile">
-      <img src="assets/img/profile.jpg" alt="Your Photo" class="profile-pic"
-           onerror="this.onerror=null; this.src='https://via.placeholder.com/150?text=No+Profile+Image'; console.warn('⚠️ profile.jpg not found. Showing placeholder.')">
-      <h2 class="profile-name">Your Name</h2>
-    </div>
+  <aside class="sidebar" role="complementary" aria-label="Sidebar with profile and links">
+    <div id="profile-container"></div>
+    
     <div class="sidebar-links">
-      <ul>
-        <li><a href="mailto:your@email.com"><i class="fas fa-envelope"></i> <span>Email</span></a></li>
-        <li><a href="assets/files/cv.pdf" target="_blank"><i class="fas fa-file-alt"></i> <span>CV</span></a></li>
-        <li><a href="https://github.com/yourgithub" target="_blank"><i class="fab fa-github"></i> <span>GitHub</span></a></li>
-        <li><a href="https://space.bilibili.com/yourid" target="_blank"><i class="fas fa-video"></i> <span>Bilibili</span></a></li>
-      </ul>
+      <ul id="sidebar-links-list"></ul>
     </div>
-  </div>
+  </aside>
 
   <div class="main" role="main">
     <nav class="navbar" role="navigation" aria-label="Main navigation">
-      <ul>
-        <li><a href="#" data-section="about" class="active">About Me</a></li>
-        <li><a href="#" data-section="research">Research</a></li>
-        <li><a href="#" data-section="projects">Projects</a></li>
-        <li><a href="#" data-section="awards">Awards</a></li>
-        <li><a href="#" data-section="hobbies">Hobbies</a></li>
-        <li><a href="#" data-section="blogs">Blogs</a></li>
-      </ul>
+      <ul id="navbar-links-list"></ul>
     </nav>
 
     <main id="content" tabindex="-1"></main>
   </div>
-</body>
+
+  <script src="assets/js/config.js"></script> <script src="assets/js/app.js" defer></script>    <script src="assets/js/router.js" defer></script> <script src="assets/js/main.js" defer></script>   </body>
 </html>
