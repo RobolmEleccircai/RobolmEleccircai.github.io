@@ -4,57 +4,9 @@
   <meta charset="UTF-8" />
   <title>Your Name | Research Master's Applicant</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <script>
-    async function showSection(sectionId) {
-      try {
-        const res = await fetch(sectionId + '.html');
-        if (!res.ok) {
-          throw new Error('Failed to load ' + sectionId);
-        }
-        const html = await res.text();
-        document.getElementById('content').innerHTML = html;
-
-        // 高亮导航
-        document.querySelectorAll('.navbar a').forEach(link => {
-          link.classList.remove('active');
-        });
-        const activeLink = document.querySelector(`.navbar a[data-section="${sectionId}"]`);
-        if (activeLink) {
-          activeLink.classList.add('active');
-        }
-      } catch (e) {
-        document.getElementById('content').innerHTML = '<p class="error-message">内容加载失败，请检查文件是否存在。</p>';
-        console.error(e);
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      // 默认显示 About Me
-      showSection('about');
-    });
-
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      // 可以将暗黑模式状态保存到 localStorage，以便下次访问时记住
-      if (document.body.classList.contains('dark-mode')) {
-        localStorage.setItem('theme', 'dark');
-      } else {
-        localStorage.setItem('theme', 'light');
-      }
-    }
-
-    // 页面加载时检查并应用保存的主题
-    document.addEventListener("DOMContentLoaded", () => {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-      }
-      // 确保初始内容加载
-      showSection('about');
-    });
-
-  </script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/router.js"></script>
+  <script defer src="assets/js/main.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -62,31 +14,33 @@
 
   <div class="sidebar" role="complementary" aria-label="Sidebar with profile and links">
     <div class="profile">
-      <img src="profile.jpg" alt="Your Photo" class="profile-pic" />
+      <img src="assets/img/profile.jpg" alt="Your Photo" class="profile-pic"
+           onerror="this.onerror=null; this.src='https://via.placeholder.com/150?text=No+Profile+Image'; console.warn('⚠️ profile.jpg not found. Showing placeholder.')">
       <h2 class="profile-name">Your Name</h2>
     </div>
-    <div class="sidebar-links"> <ul>
+    <div class="sidebar-links">
+      <ul>
         <li><a href="mailto:your@email.com"><i class="fas fa-envelope"></i> <span>Email</span></a></li>
-        <li><a href="cv.pdf" target="_blank"><i class="fas fa-file-alt"></i> <span>CV</span></a></li>
-        <li><a href="https://github.com/yourgithub" target="_blank" rel="noopener"><i class="fab fa-github"></i> <span>GitHub</span></a></li>
-        <li><a href="https://space.bilibili.com/yourid" target="_blank" rel="noopener"><i class="fas fa-video"></i> <span>Bilibili</span></a></li>
-        </ul>
+        <li><a href="assets/files/cv.pdf" target="_blank"><i class="fas fa-file-alt"></i> <span>CV</span></a></li>
+        <li><a href="https://github.com/yourgithub" target="_blank"><i class="fab fa-github"></i> <span>GitHub</span></a></li>
+        <li><a href="https://space.bilibili.com/yourid" target="_blank"><i class="fas fa-video"></i> <span>Bilibili</span></a></li>
+      </ul>
     </div>
   </div>
 
   <div class="main" role="main">
     <nav class="navbar" role="navigation" aria-label="Main navigation">
       <ul>
-        <li><a href="#" data-section="about" onclick="showSection('about'); return false;">About Me</a></li>
-        <li><a href="#" data-section="research" onclick="showSection('research'); return false;">Research</a></li> <li><a href="#" data-section="projects" onclick="showSection('projects'); return false;">Projects</a></li>
-        <li><a href="#" data-section="awards" onclick="showSection('awards'); return false;">Awards</a></li>
-        <li><a href="#" data-section="hobbies" onclick="showSection('hobbies'); return false;">Hobbies</a></li>
-        <li><a href="#" data-section="blogs" onclick="showSection('blogs'); return false;">Blogs</a></li>
-        </ul>
+        <li><a href="#" data-section="about">About Me</a></li>
+        <li><a href="#" data-section="research">Research</a></li>
+        <li><a href="#" data-section="projects">Projects</a></li>
+        <li><a href="#" data-section="awards">Awards</a></li>
+        <li><a href="#" data-section="hobbies">Hobbies</a></li>
+        <li><a href="#" data-section="blogs">Blogs</a></li>
+      </ul>
     </nav>
 
-    <main id="content" tabindex="-1">
-      </main>
+    <main id="content" tabindex="-1"></main>
   </div>
 </body>
 </html>
