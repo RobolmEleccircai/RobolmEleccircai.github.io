@@ -1,5 +1,3 @@
-// assets/js/app.js
-
 document.addEventListener("DOMContentLoaded", () => {
   // 检查 config.js 是否加载成功
   if (typeof config === "undefined") {
@@ -7,15 +5,16 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // 尝试恢复页面滚动位置
-  const savedScrollPosition = sessionStorage.getItem("scrollPosition");
+  // 恢复页面滚动位置
+  const currentSection = window.location.hash.slice(1) || 'about'; // 获取当前页面ID
+  const savedScrollPosition = localStorage.getItem(currentSection + '-scrollPosition');
   if (savedScrollPosition) {
     window.scrollTo(0, savedScrollPosition); // 恢复滚动位置
   }
 
-  // 监听点击事件，保存滚动位置
+  // 监听页面滚动，保存当前滚动位置
   window.addEventListener("beforeunload", () => {
-    sessionStorage.setItem("scrollPosition", window.scrollY); // 保存当前滚动位置
+    localStorage.setItem(currentSection + '-scrollPosition', window.scrollY); // 保存滚动位置
   });
 
   // 填充个人资料
