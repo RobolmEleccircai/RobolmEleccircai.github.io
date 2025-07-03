@@ -20,7 +20,7 @@ output_file="combined_output.txt"
 > "$output_file"
 
 # Loop through all the files with specified extensions in the current directory and subdirectories
-for file in $(find . \( -iname "*.css" -o -iname "*.js" -o -iname "*.html" -o -iname "*.md" \)); do
+for file in $(find . \( -iname "*.css" -o -iname "*.js" -o -iname "*.html" \)); do
     # Add a clear identifier for each file's content
     echo "--- ${file} start ---" >> "$output_file"
     
