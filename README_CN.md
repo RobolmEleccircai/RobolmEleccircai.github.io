@@ -1,10 +1,7 @@
+
 # 现代学术个人主页模板
 
-一个**零依赖**、**配置驱动**、**易于维护**的个人主页模板，专为研究人员、学者和学生设计。只需一键即可部署到 GitHub Pages。
-
-👉 **[在线演示](https://robolmeleccircai.github.io/)** _(请替换为你的实际链接)_
-
----
+👉 **[English Version →](README.md)** _(请替换为你的实际链接)_
 
 ## ✨ 特性
 
@@ -15,8 +12,6 @@
 - **无需构建**：纯 HTML/CSS/JS，无框架、无依赖。下载即可使用。
 - **桌面优先设计**：为桌面浏览优化，移动端通过缩放展示完整布局（不进行重排）。
 - **稳健 UI**：缺失图片会自动显示占位符，防止布局错位。
-
----
 
 ## 📁 项目结构
 
@@ -44,8 +39,6 @@ PROJECT_ROOT/
 └── README_CN.md              # 中文版说明
 ```
 
----
-
 ## 🚀 快速开始
 
 1. **Fork 或下载** 本仓库。
@@ -62,8 +55,6 @@ PROJECT_ROOT/
 3. **开始自定义**：
    - 修改 `assets/js/config.js` 配置你的个人信息和链接
    - 编辑 `sections/*.html` 内容文件
-
----
 
 ## 🛠️ 核心自定义
 
@@ -125,13 +116,11 @@ navigation: [
 <section>
   <h1>Teaching</h1>
   <ul>
-    <li><strong>Course A 助教</strong>，大学名称，2023 秋季学期</li>
-    <li><strong>Course B 助教</strong>，大学名称，2024 春季学期</li>
+    <li><strong>Course A TA</strong>, University Name, Fall 2023</li>
+    <li><strong>Course B TA</strong>, University Name, Spring 2024</li>
   </ul>
 </section>
 ```
-
----
 
 ### 3. 编辑页面内容 & 添加图片
 
@@ -143,15 +132,11 @@ navigation: [
 <img src="assets/img/my-project.jpg" alt="项目截图">
 ```
 
----
-
 ## 💡 小贴士
 
 - ⚠️ 不要添加移动端专用布局代码。本模板设计为桌面缩放到移动端。
 - 所有样式集中在 `assets/css/style.css`
 - 无框架，纯 HTML + CSS + JS
-
----
 
 ## 许可协议
 

@@ -1,34 +1,122 @@
 <section>
     <h1>Projects</h1>
-    <p>Below are some of the key projects I've worked on, showcasing my practical skills in embedded systems, software development, and hardware integration.</p>
-
-    <h2>1. Smart Home Automation Hub</h2>
-    <p><strong>Technologies:</strong> ESP32, MQTT, Python, Node-RED, Raspberry Pi</p>
-    <p><strong>Description:</strong> Developed a custom smart home hub capable of controlling various IoT devices (lights, sensors, smart plugs) using a centralized system. Features included a web-based interface for remote control, integration with voice assistants, and data logging for environmental monitoring.</p>
-    <ul>
-        <li>Implemented secure MQTT communication between devices and the central hub.</li>
-        <li>Designed a modular architecture allowing easy integration of new devices.</li>
-        <li>Utilized Node-RED for visual programming of automation flows.</li>
-    </ul>
-    <p><a href="https://github.com/yourgithub/smart-home-hub" target="_blank" rel="noopener">View on GitHub <i class="fab fa-github"></i></a> | <a href="https://www.bilibili.com/video/yourprojectvideo" target="_blank" rel="noopener">Demo Video <i class="fas fa-video"></i></a></p>
-
-    <h2>2. Autonomous Line-Following Robot</h2>
-    <p><strong>Technologies:</strong> STM32 Microcontroller, PID Control, IR Sensors, Motor Drivers, C/C++</p>
-    <p><strong>Description:</strong> Designed and built an autonomous robot that follows a black line on a white surface using PID (Proportional-Integral-Derivative) control for precise steering. The project involved low-level microcontroller programming, sensor interfacing, and real-time control algorithm implementation.</p>
-    <ul>
-        <li>Developed efficient interrupt-driven sensor reading routines.</li>
-        <li>Fine-tuned PID parameters for optimal performance on various curves.</li>
-        <li>Designed a custom PCB for power management and sensor integration.</li>
-    </ul>
-    <p><a href="https://github.com/yourgithub/line-follower-robot" target="_blank" rel="noopener">View on GitHub <i class="fab fa-github"></i></a></p>
-
-    <h2>3. Custom Wearable Health Monitor</h2>
-    <p><strong>Technologies:</strong> Arduino Nano, PPG Sensor, Bluetooth LE, Android App (Java)</p>
-    <p><strong>Description:</strong> Prototyped a wearable device that measures heart rate and blood oxygen saturation (SpO2) using a photoplethysmography (PPG) sensor. Data is transmitted via Bluetooth Low Energy (BLE) to a custom Android application for real-time visualization and data logging.</p>
-    <ul>
-        <li>Implemented signal processing algorithms for robust heart rate detection.</li>
-        <li>Developed a low-power BLE communication protocol.</li>
-        <li>Designed a user-friendly Android interface for data display.</li>
-    </ul>
-    <p><a href="https://github.com/yourgithub/wearable-health-monitor" target="_blank" rel="noopener">View on GitHub <i class="fab fa-github"></i></a></p>
+    <p>Below are some key projects I've worked on, showcasing my embedded system, software development, and hardware integration skills. You can find the source code for each project on my <a href="https://github.com/your-username" target="_blank">GitHub</a>.</p>
+  
+    <!-- REACH Surgical Project -->
+    <div class="project-card">
+      <h2>
+        <span>1. REACH Surgical, INC. - IRIS-R Endoscopic Stapler Platform Control System Development</span>
+        <a href="https://github.com/your-repo" target="_blank" class="github-link">
+          View on GitHub <i class="fab fa-github"></i>
+        </a>
+      </h2>
+      <p><strong>Project Time:</strong> Jul. 2024 – May 2025</p>
+      <p><strong>Position:</strong> Embedded Systems Developer</p>
+      <p><strong>Technologies:</strong> NXP MCU, ThreadX RTOS, NFC, UI display, motor control</p>
+      <p><strong>Project Description:</strong> Focused on R&D of the next-generation reusable endoscopic stapler control system, targeting high safety and precision for medical applications.</p>
+      <ul>
+        <li>Developed an embedded platform based on NXP MCU and ThreadX RTOS, integrating NFC, UI display, motor control, and log management.</li>
+        <li>Developed the ADAPTOR-SULU submodule by establishing NXP + NFC master-slave communication for model identification, protocol parsing, and real-time data polling.</li>
+        <li>Ported and encapsulated GUIX, LevelX, and FileX components to support UI rendering, storage management, and file system functionality.</li>
+        <li>Built a unified driver interface supporting multi-slave device management; designed and implemented log storage, data verification & backup mechanisms, improving scalability, portability, and stability of the communication module.</li>
+        <li>Implemented power-on self-tests, abnormal condition alerts, and extreme condition detection to ensure system reliability and medical safety.</li>
+      </ul>
+    </div>
+  
+    <!-- ANKER Innovations Project -->
+    <div class="project-card">
+      <h2>
+        <span>2. ANKER Innovations Technology Co, Ltd. - Home Solar Energy Storage System Based on AC Coupling</span>
+        <a href="https://github.com/your-repo" target="_blank" class="github-link">
+          View on GitHub <i class="fab fa-github"></i>
+        </a>
+      </h2>
+      <p><strong>Project Time:</strong> Jun. 2023 – Jul. 2024</p>
+      <p><strong>Position:</strong> Embedded Systems Engineer</p>
+      <p><strong>Technologies:</strong> ARM + FreeRTOS, 4G/Wi-Fi communication, solar energy storage systems</p>
+      <p><strong>Project Description:</strong> Developed a residential energy storage system (ESS) for North American and European markets, based on ARM + FreeRTOS architecture.</p>
+      <ul>
+        <li>Developed the main controller with support for 4G/Wi-Fi communication protocols, internal communication links, and power-on self-test (POST) mechanisms.</li>
+        <li>Coordinated the Power Conversion System (PCS) and Automatic Transfer Switch (ATS), enabling intelligent scheduling across the battery, PV array, and utility grid, with seamless grid-tied/off-grid switching.</li>
+        <li>Designed the main controller for PCS/ATS, implementing 4G/Wi-Fi communication protocols, internal communication links, and power-on self-test (POST) mechanisms.</li>
+        <li>Led embedded development of the heat pump energy conversion module, implementing BLE + MQTT for secondary reporting and remote strategy deployment.</li>
+        <li>Co-developed communication protocols between ESP32 and Yuneng microinverters, improving system compatibility and PV performance.</li>
+        <li>Built production test modes and executed FCT/ATE processes to accelerate mass manufacturing.</li>
+        <li>Adopted modular programming with unified API interfaces to support platform-based development and cross-project feature reuse.</li>
+      </ul>
+    </div>
+  
+    <!-- Intelligent Traffic Project -->
+    <div class="project-card">
+      <h2>
+        <span>3. Intelligent Traffic - STM32-based Dual-Mode Vehicle Positioning and Obstacle Detection System</span>
+        <a href="https://github.com/your-repo" target="_blank" class="github-link">
+          View on GitHub <i class="fab fa-github"></i>
+        </a>
+      </h2>
+      <p><strong>Project Time:</strong> Aug. 2022</p>
+      <p><strong>Project Description:</strong> Designed a GPS + BDS dual-mode positioning and obstacle detection system based on STM32, allowing users to obtain vehicle positioning information through the upper computer. When the laser distance measuring module detects an obstacle within the warning range, the LED red light turns on; when the obstacle is outside the warning range, the LED red light turns off.</p>
+      <h3>System Design Includes:</h3>
+      <ul>
+        <li><strong>Sensor Selection:</strong> Includes STM32 processor, BDS + GPS positioning module, laser distance measurement sensor, etc.</li>
+        <li><strong>Circuit Design:</strong> Includes MCU circuit, indicator circuit, LED circuit, interface circuit, etc.</li>
+        <li><strong>Software Design:</strong> Includes positioning mode selection and display of positioning information.</li>
+      </ul>
+    </div>
+  
+    <!-- Elderly Health Monitoring System -->
+    <div class="project-card">
+      <h2>
+        <span>4. Elderly Physiological Health Monitoring System Based on TCP Protocol (Qt Desktop Application)</span>
+        <a href="https://github.com/your-repo" target="_blank" class="github-link">
+          View on GitHub <i class="fab fa-github"></i>
+        </a>
+      </h2>
+      <p><strong>Project Time:</strong> Dec. 25, 2022</p>
+      <p><strong>Project Description:</strong> Developed an elderly health monitoring system using TCP protocol to measure body temperature, heart rate, and cough frequency, and upload the data to a server. The system simplifies the process of monitoring the health data of elderly family members.</p>
+      <h3>Project Features:</h3>
+      <h4>Client Features:</h4>
+      <ul>
+        <li>Connect to the server and send health data;</li>
+        <li>Local measurement of body temperature, heart rate, blood oxygen, and cough frequency (simulated acquisition);</li>
+        <li>Respond to server commands and initiate measurements;</li>
+        <li>Send calls/messages to the server.</li>
+      </ul>
+  
+      <h4>Server Features:</h4>
+      <ul>
+        <li>Listen and establish a TCP connection;</li>
+        <li>Receive and parse health data uploaded by the client;</li>
+        <li>Remotely control the client to perform measurements;</li>
+        <li>Real-time communication and status display.</li>
+      </ul>
+    </div>
+  
+    <!-- Balancing Car Posture Control -->
+    <div class="project-card">
+      <h2>
+        <span>5. Balancing Car Intelligent Posture Control System Design</span>
+        <a href="https://github.com/your-repo" target="_blank" class="github-link">
+          View on GitHub <i class="fab fa-github"></i>
+        </a>
+      </h2>
+      <p><strong>Project Time:</strong> Dec. 25, 2022</p>
+      <p><strong>Project Description:</strong> Designed a balancing car posture measurement and real-time control system based on the ESP32 microcontroller. The system uses the MPU6050 gyroscope to detect the tilt angle and angular velocity of the car in real time, and adjusts the motor output using a PID control algorithm to achieve self-balancing.</p>
+      <h3>Project Features:</h3>
+      <ul>
+        <li>Real-time sensing of the tilt angle and angular velocity of the car;</li>
+        <li>Stabilization control through PID algorithm (PD for upright control and PI for speed control);</li>
+        <li>ESP32 control core processes sensor data and drives dual motors;</li>
+        <li>Supports Bluetooth wireless communication for remote control of the car’s motion direction;</li>
+        <li>Provides a graphical Bluetooth control interface (based on MFC development).</li>
+      </ul>
+      <h3>Key Technologies:</h3>
+      <ul>
+        <li>MPU6050 gyroscope module for angle and angular velocity detection;</li>
+        <li>PID control to dynamically adjust motor PWM output based on posture data;</li>
+        <li>Motor driver module: DRV8833, Power supply module: LM2596S for voltage regulation;</li>
+        <li>Bluetooth serial communication to implement human-machine interaction, device scanning, command sending, and motion control;</li>
+        <li>Reasonable hardware structure to ensure stable operation and performance.</li>
+      </ul>
+    </div>
 </section>

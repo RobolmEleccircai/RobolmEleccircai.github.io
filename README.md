@@ -1,14 +1,7 @@
-[中文版说明 →](README_CN.md)
-
----
 
 # Modern Academic Personal Homepage Template
 
-A **zero-dependency**, **config-driven**, and **easy-to-maintain** personal homepage template designed for researchers, academics, and students. Deploy to GitHub Pages in just one click.
-
-👉 **[Live Demo](https://robolmeleccircai.github.io/)** _(Replace with your actual link)_
-
----
+👉 **[中文版说明 →](README_CN.md)** _(Please replace with your actual link)_
 
 ## ✨ Features
 
@@ -19,8 +12,6 @@ A **zero-dependency**, **config-driven**, and **easy-to-maintain** personal home
 - **No Build Required**: Pure HTML/CSS/JS, no frameworks or dependencies. Just download and go.
 - **Desktop-First Design**: Optimized for desktop viewing; mobile users will see the full layout via scaling (not reflow).
 - **Fail-Safe UI**: Missing images automatically show fallback placeholders to prevent layout breakage.
-
----
 
 ## 📁 Project Structure
 
@@ -45,10 +36,8 @@ PROJECT_ROOT/
 │   └── ... (other pages)
 ├── index.html                # Entry point
 ├── README.md                 # English README
-└── README_CN.md              # 中文版说明
+└── README_CN.md              # Chinese README
 ```
-
----
 
 ## 🚀 Quick Start
 
@@ -66,8 +55,6 @@ PROJECT_ROOT/
 3. **Start Customizing**:
    - Modify `assets/js/config.js` for your profile & links
    - Edit content in `sections/*.html`
-
----
 
 ## 🛠️ Core Customization
 
@@ -135,8 +122,6 @@ Create `sections/teaching.html` with your content:
 </section>
 ```
 
----
-
 ### 3. Editing Page Content & Adding Images
 
 - Edit `sections/*.html` with basic HTML: `<h1>`, `<p>`, `<ul>`, `<img>`, etc.
@@ -144,18 +129,14 @@ Create `sections/teaching.html` with your content:
 - Use image tags like:
 
 ```html
-<img src="assets/img/my-project.jpg" alt="My Project Screenshot">
+<img src="assets/img/my-project.jpg" alt="Project Screenshot">
 ```
-
----
 
 ## 💡 Tips
 
 - ⚠️ Avoid putting mobile-specific layout code. This template scales down desktop layout on mobile (by design).
 - All styles are in `assets/css/style.css`
 - No frameworks. Pure HTML + CSS + JS
-
----
 
 ## License
 
