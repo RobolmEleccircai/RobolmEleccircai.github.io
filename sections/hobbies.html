@@ -6,4 +6,19 @@
       <li><strong>Audio & Media Production:</strong> I have technical skills in media production software. I am proficient in <strong>Adobe Audition</strong> and <strong>Premiere Pro</strong>, with professional voice-over and audio editing abilities.</li>
     </ul>
   </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lastScroll = sessionStorage.getItem(window.location.hash + '-scrollPosition');
+      if (lastScroll) {
+        window.scrollTo(0, lastScroll);  // 滚动到上次保存的位置
+      }
+  
+      window.addEventListener('beforeunload', () => {
+        sessionStorage.setItem(window.location.hash + '-scrollPosition', window.scrollY); // 保存滚动位置
+      });
+    });
+  </script>
+  
+  
   

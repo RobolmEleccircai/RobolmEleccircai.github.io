@@ -20,3 +20,18 @@
         <li><strong>Patent:</strong> This work led to a registered software copyright: "BeiDou-Based Dual-Mode AGV Positioning System" (Registration No: 2023SR0232320)</li>
     </ul>
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lastScroll = sessionStorage.getItem(window.location.hash + '-scrollPosition');
+      if (lastScroll) {
+        window.scrollTo(0, lastScroll);  // 滚动到上次保存的位置
+      }
+  
+      window.addEventListener('beforeunload', () => {
+        sessionStorage.setItem(window.location.hash + '-scrollPosition', window.scrollY); // 保存滚动位置
+      });
+    });
+  </script>
+  
+  

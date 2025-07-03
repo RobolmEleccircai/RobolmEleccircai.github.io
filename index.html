@@ -29,5 +29,26 @@
     <main id="content" tabindex="-1"></main>
   </div>
 
-  <script src="assets/js/config.js"></script> <script src="assets/js/app.js" defer></script>    <script src="assets/js/router.js" defer></script> <script src="assets/js/main.js" defer></script>   </body>
+  <script src="assets/js/config.js"></script> 
+  <script src="assets/js/app.js" defer></script> 
+  <script src="assets/js/router.js" defer></script> 
+  <script src="assets/js/main.js" defer></script> 
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const currentSection = window.location.hash || '#about';  // 默认是 #about
+      const lastScroll = sessionStorage.getItem(currentSection + '-scrollPosition');
+      
+      if (lastScroll) {
+        window.scrollTo(0, lastScroll);  // 恢复滚动位置
+      }
+  
+      window.addEventListener('beforeunload', () => {
+        sessionStorage.setItem(currentSection + '-scrollPosition', window.scrollY);  // 保存滚动位置
+      });
+    });
+  </script>
+  
+
+</body>
 </html>
