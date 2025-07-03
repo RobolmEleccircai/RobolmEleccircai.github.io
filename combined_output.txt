@@ -1,0 +1,1156 @@
+--- ./assets/css/style.css start ---
+/* 引入 Google Fonts (确保在 HTML <head> 中也引入了)
+   font-family: 'Montserrat', sans-serif; (用于标题和重要文本)
+   font-family: 'Lato', sans-serif; (用于正文) */
+
+/* Reset + 基础设置 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: #f0f2f5;
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  line-height: 1.7;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* 暗黑模式 */
+.dark-mode {
+  background-color: #282c34;
+  color: #e0e0e0;
+}
+.dark-mode a {
+  color: #e0e0e0;
+}
+
+/* 侧边栏 */
+.sidebar {
+  width: 240px;
+  background-color: #ffffff;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+  flex-shrink: 0;
+}
+.dark-mode .sidebar {
+  background-color: #21252b;
+  border-color: #3a3f47;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 20px auto;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 4px solid #4CAF50;
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.6);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.dark-mode .profile {
+  border: 4px solid #66bb6a;
+  box-shadow: 0 0 15px rgba(102, 187, 106, 0.4);
+}
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+.dark-mode .profile-name {
+  color: #f0f0f0;
+}
+
+/* 侧边栏链接样式 */
+.sidebar-links ul {
+  list-style: none;
+  width: 100%;
+}
+.sidebar-links ul li {
+  margin: 8px 0;
+}
+.sidebar ul li a {
+  color: #555;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.sidebar ul li a i {
+  width: 30px;
+  text-align: center;
+  margin-right: 12px;
+  flex-shrink: 0;
+  font-size: 1.2em;
+  color: #666;
+  transition: color 0.3s ease;
+}
+.sidebar ul li a span {
+  flex-grow: 1;
+}
+.sidebar ul li a:hover {
+  color: #fff;
+  background-color: #4CAF50;
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+.sidebar ul li a:hover i {
+  color: #fff;
+}
+.dark-mode .sidebar ul li a {
+  color: #c0c0c0;
+}
+.dark-mode .sidebar ul li a i {
+  color: #c0c0c0;
+}
+.dark-mode .sidebar ul li a:hover {
+  background-color: #66bb6a;
+}
+.dark-mode .sidebar ul li a:hover i {
+  color: #fff;
+}
+
+/* 主体内容 */
+.main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  transition: background-color 0.4s ease;
+}
+.dark-mode .main {
+  background-color: #282c34;
+}
+
+nav.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.dark-mode nav.navbar {
+  background-color: #21252b;
+  border-color: #3a3f47;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+nav.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 2rem;
+  padding: 0;
+}
+nav.navbar a {
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+nav.navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+nav.navbar a:hover:not(.active) {
+  background-color: #e0e0e0;
+  color: #333;
+  transform: translateY(-2px);
+}
+.dark-mode nav.navbar a {
+  color: #c0c0c0;
+}
+.dark-mode nav.navbar a.active {
+  background-color: #66bb6a;
+  color: #fff;
+}
+.dark-mode nav.navbar a:hover:not(.active) {
+  background-color: #3a3f47;
+  color: #f0f0f0;
+}
+
+/* 内容区域 */
+main#content {
+  flex-grow: 1;
+  padding: 40px;
+  max-width: 960px;
+  width: 100%;
+  margin: 30px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: background-color 0.4s ease;
+}
+.dark-mode main#content {
+  background-color: #21252b;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* 项目部分样式 */
+main#content section {
+  max-width: 800px;
+  margin: 0 auto 3em;
+  text-align: left;
+}
+
+main#content h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+main#content h1::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  background-color: #4CAF50;
+  border-radius: 2px;
+}
+.dark-mode main#content h1 {
+  color: #f0f0f0;
+}
+.dark-mode main#content h1::after {
+  background-color: #66bb6a;
+}
+
+/* 项目链接样式 */
+.github-link {
+  color: blue;
+  text-decoration: underline;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
+.github-link:hover {
+  color: darkblue;
+  text-decoration: underline;
+}
+
+.github-link i {
+  margin-left: 5px;
+}
+
+main#content p,
+main#content li {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+.dark-mode main#content p,
+.dark-mode main#content li {
+  color: #c0c0c0;
+}
+main#content ul,
+main#content ol {
+  list-style-position: outside;
+  padding-left: 25px;
+  margin-bottom: 1.5em;
+}
+main#content ul li::before {
+  content: "•";
+  color: #4CAF50;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+main#content img {
+  display: block;
+  margin: 2em 0;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 主题切换按钮 */
+.toggle-theme {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.3em;
+  color: #777;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+.toggle-theme:hover {
+  background-color: #e0e0e0;
+  color: #4CAF50;
+  transform: rotate(15deg);
+}
+.dark-mode .toggle-theme {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: #c0c0c0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+.dark-mode .toggle-theme:hover {
+  background-color: #3a3f47;
+  color: #66bb6a;
+}
+
+/* 禁用响应式布局，让移动端只进行缩放，不触发换行等布局变化 */
+/* 删除所有 @media 查询规则 */
+--- ./assets/css/style.css end ---
+--- ./assets/js/app.js start ---
+document.addEventListener("DOMContentLoaded", () => {
+  // 检查 config.js 是否加载成功
+  if (typeof config === "undefined") {
+    console.error("错误：config.js 文件未加载或 config 对象不存在。");
+    return;
+  }
+
+  // 恢复页面滚动位置
+  const currentSection = window.location.hash.slice(1) || 'about'; // 获取当前页面ID
+  const savedScrollPosition = localStorage.getItem(currentSection + '-scrollPosition');
+  if (savedScrollPosition) {
+    window.scrollTo(0, savedScrollPosition); // 恢复滚动位置
+  }
+
+  // 监听页面滚动，保存当前滚动位置
+  window.addEventListener("beforeunload", () => {
+    localStorage.setItem(currentSection + '-scrollPosition', window.scrollY); // 保存滚动位置
+  });
+
+  // 填充个人资料
+  const profileContainer = document.getElementById("profile-container");
+  if (profileContainer) {
+    profileContainer.innerHTML = `
+      <div class="profile">
+        <img src="${config.profile.photo}" alt="Your Photo" class="profile-pic"
+             onerror="this.onerror=null; this.src='https://via.placeholder.com/150?text=No+Profile+Image'; console.warn('⚠️ profile.jpg not found. Showing placeholder.')">
+      </div>
+      <h2 class="profile-name">${config.profile.name}</h2>
+    `;
+  }
+
+  // 填充侧边栏链接
+  const sidebarLinksList = document.getElementById("sidebar-links-list");
+  if (sidebarLinksList) {
+    let linksHTML = "";
+    config.contact.forEach((link) => {
+      const targetAttr = link.target ? `target="${link.target}"` : "";
+      linksHTML += `
+        <li>
+          <a href="${link.url}" ${targetAttr}>
+            <i class="${link.icon}"></i> <span>${link.name}</span>
+          </a>
+        </li>
+      `;
+    });
+    sidebarLinksList.innerHTML = linksHTML;
+  }
+
+  // 填充顶部导航栏
+  const navbarLinksList = document.getElementById("navbar-links-list");
+  if (navbarLinksList) {
+    let navHTML = "";
+    config.navigation.forEach((navItem, index) => {
+      const activeClass = index === 0 ? "active" : "";
+      navHTML += `
+        <li>
+          <a href="#" data-section="${navItem.section}" class="${activeClass}">${navItem.name}</a>
+        </li>
+      `;
+    });
+    navbarLinksList.innerHTML = navHTML;
+  }
+});
+--- ./assets/js/app.js end ---
+--- ./assets/js/config.js start ---
+// assets/js/config.js
+
+const config = {
+    // 个人资料
+    profile: {
+      name: "Cheng Liao", // 在这里修改你的名字
+      photo: "assets/img/profile.png", // 你的头像路径
+    },
+  
+    // 侧边栏的联系方式和文件链接
+    contact: [
+      {
+        name: "Email",
+        icon: "fas fa-envelope", // Font Awesome 图标 class
+        url: "mailto:robolm_eleccircai@163.com", // 在这里修改你的邮箱
+      },
+      {
+        name: "CV",
+        icon: "fas fa-file-alt",
+        url: "assets/files/cv.pdf", // 你的简历路径
+        target: "_blank", // _blank 表示在新标签页中打开
+      },
+      {
+        name: "GitHub",
+        icon: "fab fa-github",
+        url: "https://github.com/RobolmEleccircai", // 在这里修改你的 GitHub 链接
+        target: "_blank",
+      },
+      {
+        name: "Bilibili",
+        icon: "fab fa-bilibili",
+        url: "https://space.bilibili.com/334016814?spm_id_from=333.1007.0.0", // 在这里修改你的 Bilibili 链接
+        target: "_blank",
+      },
+    ],
+  
+    // 顶部导航栏
+    navigation: [
+      { name: "About Me", section: "about" },
+      { name: "Research", section: "research" },
+      { name: "Projects", section: "projects" },
+      { name: "Awards", section: "awards" },
+      { name: "Hobbies", section: "hobbies" },
+      { name: "Blogs", section: "blogs" },
+    ],
+  };--- ./assets/js/config.js end ---
+--- ./assets/js/main.js start ---
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  }
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+  });
+  --- ./assets/js/main.js end ---
+--- ./assets/js/router.js start ---
+document.addEventListener("DOMContentLoaded", () => {
+  // 获取 hash 路由并加载对应页面
+  const section = window.location.hash.slice(1) || 'about'; // 默认加载 'about'
+  showSection(section); // 加载该页面内容
+
+  // 更新导航栏选中的链接
+  updateActiveNavLink(section);
+
+  // 监听导航栏点击事件
+  document.querySelectorAll(".navbar a").forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const section = e.target.getAttribute("data-section");
+
+      showSection(section); // 加载新页面
+      window.location.hash = section; // 更新 hash 值，触发路由变化
+
+      updateActiveNavLink(section); // 更新导航栏选中的链接
+    });
+  });
+});
+
+// 加载指定的页面内容
+function showSection(sectionId) {
+  fetch(`sections/${sectionId}.html`)
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('content').innerHTML = html; // 插入页面内容
+      restoreScrollPosition(sectionId); // 恢复滚动位置
+    })
+    .catch(err => {
+      document.getElementById('content').innerHTML = "<p>内容加载失败，请检查文件是否存在。</p>";
+      console.error("加载失败：", err);
+    });
+}
+
+// 恢复滚动位置
+function restoreScrollPosition(sectionId) {
+  const lastScroll = localStorage.getItem(sectionId + '-scrollPosition');
+  if (lastScroll) {
+    window.scrollTo(0, lastScroll); // 恢复滚动位置
+  }
+
+  window.addEventListener('beforeunload', () => {
+    localStorage.setItem(sectionId + '-scrollPosition', window.scrollY); // 保存滚动位置
+  });
+}
+
+// 更新导航栏选中的链接
+function updateActiveNavLink(sectionId) {
+  document.querySelectorAll(".navbar a").forEach(link => {
+    link.classList.remove("active"); // 移除所有的 active 类
+    if (link.getAttribute("data-section") === sectionId) {
+      link.classList.add("active"); // 为当前页面添加 active 类
+    }
+  });
+}
+--- ./assets/js/router.js end ---
+--- ./index.html start ---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cheng Liao | Academic Homepage</title>
+  
+  <meta name="viewport" content="width=1280">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <button class="toggle-theme" onclick="toggleDarkMode()" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+
+  <aside class="sidebar" role="complementary" aria-label="Sidebar with profile and links">
+    <div id="profile-container"></div>
+    <div class="sidebar-links">
+      <ul id="sidebar-links-list"></ul>
+    </div>
+  </aside>
+
+  <div class="main" role="main">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <ul id="navbar-links-list"></ul>
+    </nav>
+
+    <main id="content" tabindex="-1"></main>
+  </div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js" defer></script>
+  <script src="assets/js/router.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  
+  <script>
+    // 页面加载时，恢复滚动位置
+    document.addEventListener("DOMContentLoaded", () => {
+      const currentSection = window.location.hash || '#about';  // 默认是 #about
+      const lastScroll = localStorage.getItem(currentSection + '-scrollPosition');
+      
+      if (lastScroll) {
+        window.scrollTo(0, lastScroll);  // 恢复滚动位置
+      }
+  
+      window.addEventListener('beforeunload', () => {
+        localStorage.setItem(currentSection + '-scrollPosition', window.scrollY);  // 保存滚动位置
+      });
+    });
+  </script>
+
+</body>
+</html>
+--- ./index.html end ---
+--- ./README.md start ---
+
+# Modern Academic Personal Homepage Template
+
+👉 **[中文版说明 →](README_CN.md)** _(Please replace with your actual link)_
+
+## ✨ Features
+
+- **Config-Driven**: Easily modify all personal info, links, and page sections from `config.js`.
+- **Modular Content**: Each section is written as an independent HTML file under `/sections/`.
+- **Single-Page Experience**: Smooth page transitions using asynchronous loading, no reloads.
+- **Dark Mode**: Built-in toggleable light/dark theme, remembers user preferences.
+- **No Build Required**: Pure HTML/CSS/JS, no frameworks or dependencies. Just download and go.
+- **Desktop-First Design**: Optimized for desktop viewing; mobile users will see the full layout via scaling (not reflow).
+- **Fail-Safe UI**: Missing images automatically show fallback placeholders to prevent layout breakage.
+
+## 📁 Project Structure
+
+```
+PROJECT_ROOT/
+├── assets/
+│   ├── css/
+│   │   └── style.css         # Main stylesheet
+│   ├── files/
+│   │   └── (e.g. cv.pdf)     # Your resume and downloadable files
+│   ├── img/
+│   │   └── (e.g. profile.jpg) # Profile picture and project images
+│   └── js/
+│       ├── config.js         # ★ Core configuration: your data & links
+│       ├── app.js            # Applies data to DOM
+│       ├── router.js         # Handles SPA-like navigation
+│       └── main.js           # Theme switch, initialization
+├── sections/
+│   ├── about.html
+│   ├── awards.html
+│   ├── projects.html
+│   └── ... (other pages)
+├── index.html                # Entry point
+├── README.md                 # English README
+└── README_CN.md              # Chinese README
+```
+
+## 🚀 Quick Start
+
+1. **Fork or Download** this repository.
+2. **Enable GitHub Pages**:
+   - Go to your repo → `Settings` → `Pages`
+   - Under `Build and deployment`, choose:
+     - Source: `Deploy from a branch`
+     - Branch: `main`
+     - Folder: `/ (root)`
+   - Click `Save`. In a few minutes, your homepage will be live at:
+     ```
+     https://<your-username>.github.io/<your-repo-name>/
+     ```
+3. **Start Customizing**:
+   - Modify `assets/js/config.js` for your profile & links
+   - Edit content in `sections/*.html`
+
+## 🛠️ Core Customization
+
+**Edit only `assets/js/config.js` and `sections/` to personalize your site.**
+
+### 1. Basic Profile Info
+
+Open `assets/js/config.js`:
+
+```js
+const config = {
+  profile: {
+    name: "Your Name",              // Your name
+    photo: "assets/img/profile.jpg" // Your profile image
+  },
+  contact: [
+    {
+      name: "Email",
+      icon: "fas fa-envelope",
+      url: "mailto:you@example.com"
+    },
+    {
+      name: "GitHub",
+      icon: "fab fa-github",
+      url: "https://github.com/yourusername",
+      target: "_blank"
+    },
+    {
+      name: "LinkedIn",
+      icon: "fab fa-linkedin",
+      url: "https://linkedin.com/in/yourprofile",
+      target: "_blank"
+    }
+  ]
+}
+```
+
+> 🔧 You can add more links using [Font Awesome Icons](https://fontawesome.com/search?m=free)
+
+### 2. Navigation Bar
+
+To add a new section like “Teaching”:
+
+**Step 1: Add to navigation**
+
+```js
+navigation: [
+  { name: "About Me", section: "about" },
+  { name: "Research", section: "research" },
+  { name: "Teaching", section: "teaching" },  // New item
+  { name: "Projects", section: "projects" }
+]
+```
+
+**Step 2: Create a new file**
+Create `sections/teaching.html` with your content:
+
+```html
+<section>
+  <h1>Teaching</h1>
+  <ul>
+    <li><strong>Course A TA</strong>, University Name, Fall 2023</li>
+    <li><strong>Course B TA</strong>, University Name, Spring 2024</li>
+  </ul>
+</section>
+```
+
+### 3. Editing Page Content & Adding Images
+
+- Edit `sections/*.html` with basic HTML: `<h1>`, `<p>`, `<ul>`, `<img>`, etc.
+- Place your images in `assets/img/`
+- Use image tags like:
+
+```html
+<img src="assets/img/my-project.jpg" alt="Project Screenshot">
+```
+
+## 💡 Tips
+
+- ⚠️ Avoid putting mobile-specific layout code. This template scales down desktop layout on mobile (by design).
+- All styles are in `assets/css/style.css`
+- No frameworks. Pure HTML + CSS + JS
+
+## License
+
+This project is licensed under the MIT License. Free to use and modify.
+--- ./README.md end ---
+--- ./README_CN.md start ---
+
+# 现代学术个人主页模板
+
+👉 **[English Version →](README.md)** _(请替换为你的实际链接)_
+
+## ✨ 特性
+
+- **配置驱动**：通过修改 `config.js` 即可轻松更改所有个人信息、链接和页面部分。
+- **模块化内容**：每个部分作为独立的 HTML 文件存放在 `/sections/` 目录下。
+- **单页体验**：异步加载实现页面平滑切换，无需页面刷新。
+- **暗黑模式**：内置可切换的亮色/暗色主题，自动记住用户偏好。
+- **无需构建**：纯 HTML/CSS/JS，无框架、无依赖。下载即可使用。
+- **桌面优先设计**：为桌面浏览优化，移动端通过缩放展示完整布局（不进行重排）。
+- **稳健 UI**：缺失图片会自动显示占位符，防止布局错位。
+
+## 📁 项目结构
+
+```
+PROJECT_ROOT/
+├── assets/
+│   ├── css/
+│   │   └── style.css         # 主样式表
+│   ├── files/
+│   │   └── (例如 cv.pdf)     # 简历或其他可下载文件
+│   ├── img/
+│   │   └── (例如 profile.jpg) # 头像和项目图片
+│   └── js/
+│       ├── config.js         # ★ 核心配置：你的数据和链接
+│       ├── app.js            # 将数据应用到 DOM
+│       ├── router.js         # 处理 SPA 导航
+│       └── main.js           # 主题切换、初始化
+├── sections/
+│   ├── about.html
+│   ├── awards.html
+│   ├── projects.html
+│   └── ... (其他页面)
+├── index.html                # 入口文件
+├── README.md                 # 英文说明
+└── README_CN.md              # 中文版说明
+```
+
+## 🚀 快速开始
+
+1. **Fork 或下载** 本仓库。
+2. **启用 GitHub Pages**：
+   - 打开你的仓库 → `Settings` → `Pages`
+   - 在 `Build and deployment` 下选择：
+     - Source: `Deploy from a branch`
+     - Branch: `main`
+     - Folder: `/ (root)`
+   - 点击 `Save`。几分钟后，你的主页将上线：
+     ```
+     https://<your-username>.github.io/<your-repo-name>/
+     ```
+3. **开始自定义**：
+   - 修改 `assets/js/config.js` 配置你的个人信息和链接
+   - 编辑 `sections/*.html` 内容文件
+
+## 🛠️ 核心自定义
+
+**只需编辑 `assets/js/config.js` 和 `sections/` 文件夹即可完成个性化定制。**
+
+### 1. 基本个人信息
+
+打开 `assets/js/config.js`：
+
+```js
+const config = {
+  profile: {
+    name: "Your Name",              // 你的名字
+    photo: "assets/img/profile.jpg" // 你的头像
+  },
+  contact: [
+    {
+      name: "Email",
+      icon: "fas fa-envelope",
+      url: "mailto:you@example.com"
+    },
+    {
+      name: "GitHub",
+      icon: "fab fa-github",
+      url: "https://github.com/yourusername",
+      target: "_blank"
+    },
+    {
+      name: "LinkedIn",
+      icon: "fab fa-linkedin",
+      url: "https://linkedin.com/in/yourprofile",
+      target: "_blank"
+    }
+  ]
+}
+```
+
+> 🔧 你可以使用 [Font Awesome 图标](https://fontawesome.com/search?m=free) 增加更多链接。
+
+### 2. 导航栏
+
+例如新增“教学”页面：
+
+**步骤 1：添加导航项**
+
+```js
+navigation: [
+  { name: "About Me", section: "about" },
+  { name: "Research", section: "research" },
+  { name: "Teaching", section: "teaching" },  // 新增项
+  { name: "Projects", section: "projects" }
+]
+```
+
+**步骤 2：创建新文件**
+新建 `sections/teaching.html` 文件，填入内容：
+
+```html
+<section>
+  <h1>Teaching</h1>
+  <ul>
+    <li><strong>Course A TA</strong>, University Name, Fall 2023</li>
+    <li><strong>Course B TA</strong>, University Name, Spring 2024</li>
+  </ul>
+</section>
+```
+
+### 3. 编辑页面内容 & 添加图片
+
+- 用基本 HTML 编辑 `sections/*.html`：`<h1>`、`<p>`、`<ul>`、`<img>` 等。
+- 图片放入 `assets/img/`。
+- 使用如下标签插入图片：
+
+```html
+<img src="assets/img/my-project.jpg" alt="项目截图">
+```
+
+## 💡 小贴士
+
+- ⚠️ 不要添加移动端专用布局代码。本模板设计为桌面缩放到移动端。
+- 所有样式集中在 `assets/css/style.css`
+- 无框架，纯 HTML + CSS + JS
+
+## 许可协议
+
+本项目基于 MIT 协议，免费使用和修改。
+--- ./README_CN.md end ---
+--- ./sections/about.html start ---
+<!-- assets/sections/about.html -->
+<section>
+  <h1>About Me</h1>
+  <p>
+    I am a graduate from China with a background in Electronics and Control Engineering. My academic experience includes key projects such as the design of a blind path guiding system and BeiDou/GPS-based trajectory planning for miniature AGVs. I have accumulated practical experience in embedded system development while working with several companies, applying innovative technologies to solve real-world engineering problems.
+  </p>
+  <p>
+    My research interests include embedded systems, artificial intelligence, robotics, and control systems. I aim to leverage my interdisciplinary communication skills and teamwork spirit to tackle various challenges in future projects.
+  </p>
+  <h2>Skills</h2>
+  <ul>
+    <li><strong>Programming Languages:</strong> Proficient in C/C++, Python, Java, and familiar with front-end development and WeChat mini-program development.</li>
+    <li><strong>Embedded Systems:</strong> Expertise in STM32, ESP32 development, with experience in Keil, VSCode, FreeRTOS, etc.</li>
+    <li><strong>Robotics & AI:</strong> Experienced with ROS, PyTorch, and deep learning model deployment.</li>
+    <li><strong>Control & Simulation:</strong> Familiar with Proteus, Multisim, MATLAB/Simulink, with interface development using LabVIEW and Qt.</li>
+  </ul>
+</section>
+
+<!-- 加入滚动恢复的脚本 -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const lastScroll = sessionStorage.getItem(window.location.hash + '-scrollPosition');
+    if (lastScroll) {
+      window.scrollTo(0, lastScroll);  // 滚动到上次保存的位置
+    }
+
+    window.addEventListener('beforeunload', () => {
+      sessionStorage.setItem(window.location.hash + '-scrollPosition', window.scrollY); // 保存滚动位置
+    });
+  });
+</script>
+--- ./sections/about.html end ---
+--- ./sections/awards.html start ---
+<section>
+    <h1>Awards & Honors</h1>
+    <p>My work and contributions have been recognized with the following honors:</p>
+    <ul>
+      <li><strong>Professional Technician Certification</strong>, China Instrument and Control Society (May 2023)</li>
+      <li><strong>Long-Term Incentive Award for New Graduate Employee</strong>, ANKER Innovations Technology Co., Ltd. (May 2024)</li>
+    </ul>
+  </section>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lastScroll = sessionStorage.getItem(window.location.hash + '-scrollPosition');
+      if (lastScroll) {
+        window.scrollTo(0, lastScroll);  // 滚动到上次保存的位置
+      }
+  
+      window.addEventListener('beforeunload', () => {
+        sessionStorage.setItem(window.location.hash + '-scrollPosition', window.scrollY); // 保存滚动位置
+      });
+    });
+  </script>
+  
+  --- ./sections/awards.html end ---
+--- ./sections/blogs.html start ---
+<section>
+    <h1>Blogs & Articles</h1>
+    <p>This section will feature my thoughts, tutorials, and insights on topics related to embedded systems, programming, and technology. Stay tuned for updates!</p>
+    <p class="coming-soon">Coming soon...</p>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const lastScroll = sessionStorage.getItem(window.location.hash + '-scrollPosition');
+          if (lastScroll) {
+            window.scrollTo(0, lastScroll);  // 滚动到上次保存的位置
+          }
+      
+          window.addEventListener('beforeunload', () => {
+            sessionStorage.setItem(window.location.hash + '-scrollPosition', window.scrollY); // 保存滚动位置
+          });
+        });
+      </script>
+      --- ./sections/blogs.html end ---
+--- ./sections/hobbies.html start ---
+<section>
+    <h1>Hobbies</h1>
+    <p>Outside my academic and professional work, I have a passion for audio production and broadcasting.</p>
+    <ul>
+      <li><strong>Broadcasting & Podcasts:</strong> I have hands-on experience as an anchor and broadcast director for the campus radio station. I also founded a class radio station, where I managed everything from program planning to audio recording and editing.</li>
+      <li><strong>Audio & Media Production:</strong> I have technical skills in media production software. I am proficient in <strong>Adobe Audition</strong> and <strong>Premiere Pro</strong>, with professional voice-over and audio editing abilities.</li>
+    </ul>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lastScroll = sessionStorage.getItem(window.location.hash + '-scrollPosition');
+      if (lastScroll) {
+        window.scrollTo(0, lastScroll);  // 滚动到上次保存的位置
+      }
+  
+      window.addEventListener('beforeunload', () => {
+        sessionStorage.setItem(window.location.hash + '-scrollPosition', window.scrollY); // 保存滚动位置
+      });
+    });
+  </script>
+  
+  
+  --- ./sections/hobbies.html end ---
+--- ./sections/projects.html start ---
+<section>
+    <h1>Projects</h1>
+    <p>Below are some key projects I've worked on, showcasing my embedded system, software development, and hardware integration skills. You can find the source code for each project on my <a href="https://github.com/your-username" target="_blank">GitHub</a>.</p>
+  
+    <!-- REACH Surgical Project -->
+    <div class="project-card">
+      <h2>
+        <span>1. REACH Surgical, INC. - IRIS-R Endoscopic Stapler Platform Control System Development</span>
+        <a href="https://github.com/your-repo" target="_blank" class="github-link">
+          View on GitHub <i class="fab fa-github"></i>
+        </a>
+      </h2>
+      <p><strong>Project Time:</strong> Jul. 2024 – May 2025</p>
+      <p><strong>Position:</strong> Embedded Systems Developer</p>
+      <p><strong>Technologies:</strong> NXP MCU, ThreadX RTOS, NFC, UI display, motor control</p>
+      <p><strong>Project Description:</strong> Focused on R&D of the next-generation reusable endoscopic stapler control system, targeting high safety and precision for medical applications.</p>
+      <ul>
+        <li>Developed an embedded platform based on NXP MCU and ThreadX RTOS, integrating NFC, UI display, motor control, and log management.</li>
+        <li>Developed the ADAPTOR-SULU submodule by establishing NXP + NFC master-slave communication for model identification, protocol parsing, and real-time data polling.</li>
+        <li>Ported and encapsulated GUIX, LevelX, and FileX components to support UI rendering, storage management, and file system functionality.</li>
+        <li>Built a unified driver interface supporting multi-slave device management; designed and implemented log storage, data verification & backup mechanisms, improving scalability, portability, and stability of the communication module.</li>
+        <li>Implemented power-on self-tests, abnormal condition alerts, and extreme condition detection to ensure system reliability and medical safety.</li>
+      </ul>
+    </div>
+  
+    <!-- ANKER Innovations Project -->
+    <div class="project-card">
+      <h2>
+        <span>2. ANKER Innovations Technology Co, Ltd. - Home Solar Energy Storage System Based on AC Coupling</span>
+        <a href="https://github.com/your-repo" target="_blank" class="github-link">
+          View on GitHub <i class="fab fa-github"></i>
+        </a>
+      </h2>
+      <p><strong>Project Time:</strong> Jun. 2023 – Jul. 2024</p>
+      <p><strong>Position:</strong> Embedded Systems Engineer</p>
+      <p><strong>Technologies:</strong> ARM + FreeRTOS, 4G/Wi-Fi communication, solar energy storage systems</p>
+      <p><strong>Project Description:</strong> Developed a residential energy storage system (ESS) for North American and European markets, based on ARM + FreeRTOS architecture.</p>
+      <ul>
+        <li>Developed the main controller with support for 4G/Wi-Fi communication protocols, internal communication links, and power-on self-test (POST) mechanisms.</li>
+        <li>Coordinated the Power Conversion System (PCS) and Automatic Transfer Switch (ATS), enabling intelligent scheduling across the battery, PV array, and utility grid, with seamless grid-tied/off-grid switching.</li>
+        <li>Designed the main controller for PCS/ATS, implementing 4G/Wi-Fi communication protocols, internal communication links, and power-on self-test (POST) mechanisms.</li>
+        <li>Led embedded development of the heat pump energy conversion module, implementing BLE + MQTT for secondary reporting and remote strategy deployment.</li>
+        <li>Co-developed communication protocols between ESP32 and Yuneng microinverters, improving system compatibility and PV performance.</li>
+        <li>Built production test modes and executed FCT/ATE processes to accelerate mass manufacturing.</li>
+        <li>Adopted modular programming with unified API interfaces to support platform-based development and cross-project feature reuse.</li>
+      </ul>
+    </div>
+  
+    <!-- Intelligent Traffic Project -->
+    <div class="project-card">
+      <h2>
+        <span>3. Intelligent Traffic - STM32-based Dual-Mode Vehicle Positioning and Obstacle Detection System</span>
+        <a href="https://github.com/your-repo" target="_blank" class="github-link">
+          View on GitHub <i class="fab fa-github"></i>
+        </a>
+      </h2>
+      <p><strong>Project Time:</strong> Aug. 2022</p>
+      <p><strong>Project Description:</strong> Designed a GPS + BDS dual-mode positioning and obstacle detection system based on STM32, allowing users to obtain vehicle positioning information through the upper computer. When the laser distance measuring module detects an obstacle within the warning range, the LED red light turns on; when the obstacle is outside the warning range, the LED red light turns off.</p>
+      <h3>System Design Includes:</h3>
+      <ul>
+        <li><strong>Sensor Selection:</strong> Includes STM32 processor, BDS + GPS positioning module, laser distance measurement sensor, etc.</li>
+        <li><strong>Circuit Design:</strong> Includes MCU circuit, indicator circuit, LED circuit, interface circuit, etc.</li>
+        <li><strong>Software Design:</strong> Includes positioning mode selection and display of positioning information.</li>
+      </ul>
+    </div>
+  
+    <!-- Elderly Health Monitoring System -->
+    <div class="project-card">
+      <h2>
+        <span>4. Elderly Physiological Health Monitoring System Based on TCP Protocol (Qt Desktop Application)</span>
+        <a href="https://github.com/your-repo" target="_blank" class="github-link">
+          View on GitHub <i class="fab fa-github"></i>
+        </a>
+      </h2>
+      <p><strong>Project Time:</strong> Dec. 25, 2022</p>
+      <p><strong>Project Description:</strong> Developed an elderly health monitoring system using TCP protocol to measure body temperature, heart rate, and cough frequency, and upload the data to a server. The system simplifies the process of monitoring the health data of elderly family members.</p>
+      <h3>Project Features:</h3>
+      <h4>Client Features:</h4>
+      <ul>
+        <li>Connect to the server and send health data;</li>
+        <li>Local measurement of body temperature, heart rate, blood oxygen, and cough frequency (simulated acquisition);</li>
+        <li>Respond to server commands and initiate measurements;</li>
+        <li>Send calls/messages to the server.</li>
+      </ul>
+  
+      <h4>Server Features:</h4>
+      <ul>
+        <li>Listen and establish a TCP connection;</li>
+        <li>Receive and parse health data uploaded by the client;</li>
+        <li>Remotely control the client to perform measurements;</li>
+        <li>Real-time communication and status display.</li>
+      </ul>
+    </div>
+  
+    <!-- Balancing Car Posture Control -->
+    <div class="project-card">
+      <h2>
+        <span>5. Balancing Car Intelligent Posture Control System Design</span>
+        <a href="https://github.com/your-repo" target="_blank" class="github-link">
+          View on GitHub <i class="fab fa-github"></i>
+        </a>
+      </h2>
+      <p><strong>Project Time:</strong> Dec. 25, 2022</p>
+      <p><strong>Project Description:</strong> Designed a balancing car posture measurement and real-time control system based on the ESP32 microcontroller. The system uses the MPU6050 gyroscope to detect the tilt angle and angular velocity of the car in real time, and adjusts the motor output using a PID control algorithm to achieve self-balancing.</p>
+      <h3>Project Features:</h3>
+      <ul>
+        <li>Real-time sensing of the tilt angle and angular velocity of the car;</li>
+        <li>Stabilization control through PID algorithm (PD for upright control and PI for speed control);</li>
+        <li>ESP32 control core processes sensor data and drives dual motors;</li>
+        <li>Supports Bluetooth wireless communication for remote control of the car’s motion direction;</li>
+        <li>Provides a graphical Bluetooth control interface (based on MFC development).</li>
+      </ul>
+      <h3>Key Technologies:</h3>
+      <ul>
+        <li>MPU6050 gyroscope module for angle and angular velocity detection;</li>
+        <li>PID control to dynamically adjust motor PWM output based on posture data;</li>
+        <li>Motor driver module: DRV8833, Power supply module: LM2596S for voltage regulation;</li>
+        <li>Bluetooth serial communication to implement human-machine interaction, device scanning, command sending, and motion control;</li>
+        <li>Reasonable hardware structure to ensure stable operation and performance.</li>
+      </ul>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lastScroll = sessionStorage.getItem(window.location.hash + '-scrollPosition');
+      if (lastScroll) {
+        window.scrollTo(0, lastScroll);  // 滚动到上次保存的位置
+      }
+  
+      window.addEventListener('beforeunload', () => {
+        sessionStorage.setItem(window.location.hash + '-scrollPosition', window.scrollY); // 保存滚动位置
+      });
+    });
+  </script>
+  
+--- ./sections/projects.html end ---
+--- ./sections/research.html start ---
+<section>
+    <h1>Academic Research and Key Projects</h1>
+    <p>My academic research at Wuhan University of Technology focuses on applying embedded systems and artificial intelligence to solve practical navigation challenges.</p>
+
+    <h2>Design of a Blind Path Guiding System Based on Semantic Segmentation</h2>
+    <p><strong>Research Focus:</strong> Deep Learning, Semantic Segmentation, Image Processing, NVIDIA TensorRT</p>
+    <p><strong>Description:</strong> In my graduation project, I created a guiding device to help visually impaired individuals navigate safely. The system uses a lightweight semantic segmentation network to identify passable tactile paving and potential obstacles from camera input, providing voice instructions to users.</p>
+    <ul>
+        <li>Ported a lightweight neural network to an intelligent embedded system.</li>
+        <li>Utilized NVIDIA TensorRT high-performance engine for model inference acceleration, enabling real-time processing.</li>
+        <li>Proposed an image-processing-based obstacle avoidance algorithm to enhance navigation safety.</li>
+    </ul>
+
+    <h2>Research on BeiDou-Based Swift Deployment System for Miniature AGVs</h2>
+    <p><strong>Research Focus:</strong> BDS/GPS, 3D Environment Construction, Autonomous AGV Deployment, Collision-Free Trajectory Planning</p>
+    <p><strong>Description:</strong> This research project involves developing a system for rapidly deploying automated guided vehicles (AGVs) in outdoor environments. We integrated BeiDou (BDS) and GPS signals to achieve precise positioning, enabling collision-free trajectory planning.</p>
+    <ul>
+        <li>Used compound-eye cameras to collect environmental data and construct 3D visualized scenes.</li>
+        <li>The system supports quick deployment of miniature AGVs to target locations beyond the visible range.</li>
+        <li><strong>Patent:</strong> This work led to a registered software copyright: "BeiDou-Based Dual-Mode AGV Positioning System" (Registration No: 2023SR0232320)</li>
+    </ul>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lastScroll = sessionStorage.getItem(window.location.hash + '-scrollPosition');
+      if (lastScroll) {
+        window.scrollTo(0, lastScroll);  // 滚动到上次保存的位置
+      }
+  
+      window.addEventListener('beforeunload', () => {
+        sessionStorage.setItem(window.location.hash + '-scrollPosition', window.scrollY); // 保存滚动位置
+      });
+    });
+  </script>
+  
+  --- ./sections/research.html end ---
