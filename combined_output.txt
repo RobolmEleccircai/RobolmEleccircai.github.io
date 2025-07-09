@@ -1,4 +1,8 @@
 --- ./assets/css/style.css start ---
+/* 引入 Google Fonts (确保在 HTML <head> 中也引入了)
+   font-family: 'Montserrat', sans-serif; (用于标题和重要文本)
+   font-family: 'Lato', sans-serif; (用于正文) */
+
 /* Reset + 基础设置 */
 * {
   box-sizing: border-box;
@@ -43,7 +47,7 @@ body {
   flex-direction: column;
   align-items: center;
   border-right: 1px solid #e0e0e0;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
   transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
   flex-shrink: 0;
   z-index: 1000; /* 确保侧边栏在最上层 */
@@ -55,7 +59,6 @@ body {
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* 侧边栏的头像部分 */
 .profile {
   width: 140px;
   height: 140px;
@@ -75,8 +78,6 @@ body {
   height: 100%;
   object-fit: cover;
 }
-
-/* 侧边栏名字部分 */
 .profile-name {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.8rem;
@@ -158,11 +159,10 @@ body {
   background-color: #282c34;
 }
 
-/* 顶部导航栏 */
 nav.navbar {
   background-color: #fff;
   border-bottom: 1px solid #e0e0e0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   height: 80px;
   display: flex;
   align-items: center;
@@ -174,7 +174,7 @@ nav.navbar {
 .dark-mode nav.navbar {
   background-color: #21252b;
   border-color: #3a3f47;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 nav.navbar ul {
   display: flex;
@@ -222,12 +222,12 @@ main#content {
   margin: 30px auto;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   transition: background-color 0.4s ease;
 }
 .dark-mode main#content {
   background-color: #21252b;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
 /* 项目部分样式 */
@@ -313,7 +313,7 @@ main#content img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 /* 主题切换按钮 */
@@ -333,7 +333,7 @@ main#content img {
   font-size: 1.3em;
   color: #777;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
 }
 .toggle-theme:hover {
@@ -345,7 +345,7 @@ main#content img {
   background-color: #2a2a2a;
   border-color: #444;
   color: #c0c0c0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 .dark-mode .toggle-theme:hover {
   background-color: #3a3f47;
