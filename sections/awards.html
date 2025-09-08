@@ -1,23 +1,22 @@
 <section>
     <h1>Awards & Honors</h1>
-    <p>My work and contributions have been recognized with the following honors:</p>
-    <ul>
-      <li><strong>Professional Technician Certification</strong>, China Instrument and Control Society (May 2023)</li>
-      <li><strong>Long-Term Incentive Award for New Graduate Employee</strong>, ANKER Innovations Technology Co., Ltd. (May 2024)</li>
-    </ul>
+    <p style="margin-bottom: 30px;">My work and contributions have been recognized with the following honors:</p>
+    
+    <!-- Awards Cards -->
+    <div class="award-card">
+      <h2><i class="fas fa-certificate"></i> Professional Technician Certification</h2>
+      <p><strong>Issued by:</strong> China Instrument and Control Society</p>
+      <p><strong>Date:</strong> May 2023</p>
+      <p><strong>Recognition:</strong> Certified professional technician in the field of instrumentation and control technology.</p>
+    </div>
+
+    <div class="award-card">
+      <h2><i class="fas fa-award"></i> Long-Term Incentive Award for New Graduate Employee</h2>
+      <p><strong>Issued by:</strong> ANKER Innovations Technology Co., Ltd.</p>
+      <p><strong>Date:</strong> May 2024</p>
+      <p><strong>Recognition:</strong> Outstanding performance and contribution as a new graduate employee in embedded systems development.</p>
+    </div>
   </section>
   
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const lastScroll = sessionStorage.getItem(window.location.hash + '-scrollPosition');
-      if (lastScroll) {
-        window.scrollTo(0, lastScroll);  // 滚动到上次保存的位置
-      }
-  
-      window.addEventListener('beforeunload', () => {
-        sessionStorage.setItem(window.location.hash + '-scrollPosition', window.scrollY); // 保存滚动位置
-      });
-    });
-  </script>
   
   

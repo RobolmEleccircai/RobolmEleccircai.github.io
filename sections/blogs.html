@@ -4,16 +4,4 @@
     <p class="coming-soon">Coming soon...</p>
     </section>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const lastScroll = sessionStorage.getItem(window.location.hash + '-scrollPosition');
-          if (lastScroll) {
-            window.scrollTo(0, lastScroll);  // 滚动到上次保存的位置
-          }
-      
-          window.addEventListener('beforeunload', () => {
-            sessionStorage.setItem(window.location.hash + '-scrollPosition', window.scrollY); // 保存滚动位置
-          });
-        });
-      </script>
       

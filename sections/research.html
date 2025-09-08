@@ -1,37 +1,43 @@
 <section>
     <h1>Academic Research and Key Projects</h1>
-    <p>My academic research at Wuhan University of Technology focuses on applying embedded systems and artificial intelligence to solve practical navigation challenges.</p>
+    <p style="margin-bottom: 30px;">My academic research at Wuhan University of Technology focuses on applying embedded systems and artificial intelligence to solve practical navigation challenges.</p>
 
-    <h2>Design of a Blind Path Guiding System Based on Semantic Segmentation</h2>
-    <p><strong>Research Focus:</strong> Deep Learning, Semantic Segmentation, Image Processing, NVIDIA TensorRT</p>
-    <p><strong>Description:</strong> In my graduation project, I created a guiding device to help visually impaired individuals navigate safely. The system uses a lightweight semantic segmentation network to identify passable tactile paving and potential obstacles from camera input, providing voice instructions to users.</p>
-    <ul>
-        <li>Ported a lightweight neural network to an intelligent embedded system.</li>
-        <li>Utilized NVIDIA TensorRT high-performance engine for model inference acceleration, enabling real-time processing.</li>
-        <li>Proposed an image-processing-based obstacle avoidance algorithm to enhance navigation safety.</li>
-    </ul>
+    <!-- Research Project 1 -->
+    <div class="research-card">
+        <h2>Design of a Blind Path Guiding System Based on Semantic Segmentation</h2>
+        <div class="tech-stack">
+            <span class="tech-tag">Deep Learning</span>
+            <span class="tech-tag">Semantic Segmentation</span>
+            <span class="tech-tag">Image Processing</span>
+            <span class="tech-tag">NVIDIA TensorRT</span>
+        </div>
+        <p><strong>Description:</strong> In my graduation project, I created a guiding device to help visually impaired individuals navigate safely. The system uses a lightweight semantic segmentation network to identify passable tactile paving and potential obstacles from camera input, providing voice instructions to users.</p>
+        <h3>Key Achievements:</h3>
+        <ul>
+            <li>Ported a lightweight neural network to an intelligent embedded system.</li>
+            <li>Utilized NVIDIA TensorRT high-performance engine for model inference acceleration, enabling real-time processing.</li>
+            <li>Proposed an image-processing-based obstacle avoidance algorithm to enhance navigation safety.</li>
+        </ul>
+    </div>
 
-    <h2>Research on BeiDou-Based Swift Deployment System for Miniature AGVs</h2>
-    <p><strong>Research Focus:</strong> BDS/GPS, 3D Environment Construction, Autonomous AGV Deployment, Collision-Free Trajectory Planning</p>
-    <p><strong>Description:</strong> This research project involves developing a system for rapidly deploying automated guided vehicles (AGVs) in outdoor environments. We integrated BeiDou (BDS) and GPS signals to achieve precise positioning, enabling collision-free trajectory planning.</p>
-    <ul>
-        <li>Used compound-eye cameras to collect environmental data and construct 3D visualized scenes.</li>
-        <li>The system supports quick deployment of miniature AGVs to target locations beyond the visible range.</li>
-        <li><strong>Patent:</strong> This work led to a registered software copyright: "BeiDou-Based Dual-Mode AGV Positioning System" (Registration No: 2023SR0232320)</li>
-    </ul>
+    <!-- Research Project 2 -->
+    <div class="research-card">
+        <h2>Research on BeiDou-Based Swift Deployment System for Miniature AGVs</h2>
+        <div class="tech-stack">
+            <span class="tech-tag">BDS/GPS</span>
+            <span class="tech-tag">3D Environment Construction</span>
+            <span class="tech-tag">Autonomous AGV</span>
+            <span class="tech-tag">Trajectory Planning</span>
+        </div>
+        <p><strong>Description:</strong> This research project involves developing a system for rapidly deploying automated guided vehicles (AGVs) in outdoor environments. We integrated BeiDou (BDS) and GPS signals to achieve precise positioning, enabling collision-free trajectory planning.</p>
+        <h3>Key Achievements:</h3>
+        <ul>
+            <li>Used compound-eye cameras to collect environmental data and construct 3D visualized scenes.</li>
+            <li>The system supports quick deployment of miniature AGVs to target locations beyond the visible range.</li>
+            <li><strong>Patent:</strong> This work led to a registered software copyright: "BeiDou-Based Dual-Mode AGV Positioning System" (Registration No: 2023SR0232320)</li>
+        </ul>
+    </div>
 </section>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const lastScroll = sessionStorage.getItem(window.location.hash + '-scrollPosition');
-      if (lastScroll) {
-        window.scrollTo(0, lastScroll);  // 滚动到上次保存的位置
-      }
-  
-      window.addEventListener('beforeunload', () => {
-        sessionStorage.setItem(window.location.hash + '-scrollPosition', window.scrollY); // 保存滚动位置
-      });
-    });
-  </script>
   
   

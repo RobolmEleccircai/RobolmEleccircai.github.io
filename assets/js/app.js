@@ -5,16 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // 恢复页面滚动位置
-  const currentSection = window.location.hash.slice(1) || 'about'; // 获取当前页面ID
-  const savedScrollPosition = localStorage.getItem(currentSection + '-scrollPosition');
-  if (savedScrollPosition) {
-    window.scrollTo(0, savedScrollPosition); // 恢复滚动位置
-  }
-
-  // 监听页面滚动，保存当前滚动位置
+  // 监听页面卸载，保存当前滚动位置
   window.addEventListener("beforeunload", () => {
-    localStorage.setItem(currentSection + '-scrollPosition', window.scrollY); // 保存滚动位置
+    const currentSection = window.location.hash.slice(1) || 'about';
+    localStorage.setItem(currentSection + '-scrollPosition', window.scrollY);
   });
 
   // 填充个人资料

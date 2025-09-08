@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <title>Cheng Liao | Academic Homepage</title>
   
-  <meta name="viewport" content="width=1280">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <button class="toggle-theme" onclick="toggleDarkMode()" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+  <button class="toggle-theme" onclick="toggleDarkMode()" aria-label="Toggle dark mode" title="切换暗色模式"><i class="fas fa-moon"></i></button>
 
   <aside class="sidebar" role="complementary" aria-label="Sidebar with profile and links">
     <div id="profile-container"></div>
@@ -27,26 +27,10 @@
     <main id="content" tabindex="-1"></main>
   </div>
 
-  <script src="assets/js/config.js"></script>
+  <script src="assets/js/config.js" defer></script>
   <script src="assets/js/app.js" defer></script>
   <script src="assets/js/router.js" defer></script>
   <script src="assets/js/main.js" defer></script>
-  
-  <script>
-    // 页面加载时，恢复滚动位置
-    document.addEventListener("DOMContentLoaded", () => {
-      const currentSection = window.location.hash || '#about';  // 默认是 #about
-      const lastScroll = localStorage.getItem(currentSection + '-scrollPosition');
-      
-      if (lastScroll) {
-        window.scrollTo(0, lastScroll);  // 恢复滚动位置
-      }
-  
-      window.addEventListener('beforeunload', () => {
-        localStorage.setItem(currentSection + '-scrollPosition', window.scrollY);  // 保存滚动位置
-      });
-    });
-  </script>
 
 </body>
 </html>

@@ -22,28 +22,68 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 加载指定的页面内容
 function showSection(sectionId) {
-  fetch(`sections/${sectionId}.html`)
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById('content').innerHTML = html; // 插入页面内容
-      restoreScrollPosition(sectionId); // 恢复滚动位置
-    })
-    .catch(err => {
-      document.getElementById('content').innerHTML = "<p>内容加载失败，请检查文件是否存在。</p>";
-      console.error("加载失败：", err);
-    });
+  const contentEl = document.getElementById('content');
+  
+  // 添加loading类触发淡出动画
+  contentEl.classList.add('loading');
+  
+  // 延迟一小段时间让动画开始
+  setTimeout(() => {
+    fetch(`sections/${sectionId}.html`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        return response.text();
+      })
+      .then(html => {
+        contentEl.innerHTML = html; // 插入页面内容
+        
+        // 移除loading类并添加loaded类触发淡入动画
+        contentEl.classList.remove('loading');
+        contentEl.classList.add('loaded');
+        
+        // 清理loaded类
+        setTimeout(() => {
+          contentEl.classList.remove('loaded');
+        }, 250);
+        
+        restoreScrollPosition(sectionId); // 恢复滚动位置
+      })
+      .catch(err => {
+        contentEl.innerHTML = `
+          <div style="text-align: center; padding: 60px 20px; color: #e74c3c;">
+            <i class="fas fa-exclamation-triangle" style="font-size: 3rem; margin-bottom: 20px;"></i>
+            <h2 style="margin-bottom: 15px;">页面加载失败</h2>
+            <p style="margin-bottom: 25px;">无法加载 "${sectionId}" 页面内容</p>
+            <button onclick="showSection('${sectionId}')" style="
+              background: #4CAF50; 
+              color: white; 
+              border: none; 
+              padding: 12px 24px; 
+              border-radius: 6px; 
+              cursor: pointer;
+              font-size: 1rem;
+              transition: all 0.3s ease;
+            " onmouseover="this.style.background='#45a049'" onmouseout="this.style.background='#4CAF50'">
+              重试加载
+            </button>
+          </div>
+        `;
+        contentEl.classList.remove('loading');
+        console.error("加载失败：", err);
+      });
+  }, 120); // 120ms延迟让淡出动画进行
 }
 
 // 恢复滚动位置
 function restoreScrollPosition(sectionId) {
   const lastScroll = localStorage.getItem(sectionId + '-scrollPosition');
   if (lastScroll) {
-    window.scrollTo(0, lastScroll); // 恢复滚动位置
+    setTimeout(() => {
+      window.scrollTo(0, lastScroll); // 延迟恢复，确保内容已渲染
+    }, 0);
   }
-
-  window.addEventListener('beforeunload', () => {
-    localStorage.setItem(sectionId + '-scrollPosition', window.scrollY); // 保存滚动位置
-  });
 }
 
 // 更新导航栏选中的链接

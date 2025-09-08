@@ -1,24 +1,31 @@
 <section>
     <h1>Hobbies</h1>
-    <p>Outside my academic and professional work, I have a passion for audio production and broadcasting.</p>
-    <ul>
-      <li><strong>Broadcasting & Podcasts:</strong> I have hands-on experience as an anchor and broadcast director for the campus radio station. I also founded a class radio station, where I managed everything from program planning to audio recording and editing.</li>
-      <li><strong>Audio & Media Production:</strong> I have technical skills in media production software. I am proficient in <strong>Adobe Audition</strong> and <strong>Premiere Pro</strong>, with professional voice-over and audio editing abilities.</li>
-    </ul>
+    <p style="margin-bottom: 30px;">Outside my academic and professional work, I have a passion for audio production and broadcasting.</p>
+    
+    <!-- Hobbies Cards -->
+    <div class="hobby-card">
+      <h2><i class="fas fa-microphone"></i> Broadcasting & Podcasts</h2>
+      <p>I have hands-on experience as an anchor and broadcast director for the campus radio station. I also founded a class radio station, where I managed everything from program planning to audio recording and editing.</p>
+      <div class="hobby-skills">
+        <span class="skill-tag">Radio Broadcasting</span>
+        <span class="skill-tag">Program Planning</span>
+        <span class="skill-tag">Audio Recording</span>
+        <span class="skill-tag">Content Creation</span>
+      </div>
+    </div>
+
+    <div class="hobby-card">
+      <h2><i class="fas fa-music"></i> Audio & Media Production</h2>
+      <p>I have technical skills in media production software. I am proficient in <strong>Adobe Audition</strong> and <strong>Premiere Pro</strong>, with professional voice-over and audio editing abilities.</p>
+      <div class="hobby-skills">
+        <span class="skill-tag">Adobe Audition</span>
+        <span class="skill-tag">Premiere Pro</span>
+        <span class="skill-tag">Voice-over</span>
+        <span class="skill-tag">Audio Editing</span>
+      </div>
+    </div>
   </section>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const lastScroll = sessionStorage.getItem(window.location.hash + '-scrollPosition');
-      if (lastScroll) {
-        window.scrollTo(0, lastScroll);  // 滚动到上次保存的位置
-      }
-  
-      window.addEventListener('beforeunload', () => {
-        sessionStorage.setItem(window.location.hash + '-scrollPosition', window.scrollY); // 保存滚动位置
-      });
-    });
-  </script>
   
   
   
