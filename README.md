@@ -7,8 +7,11 @@
 
 - **Config-Driven**: Easily modify all personal info, links, and page sections from `config.js`.
 - **Modular Content**: Each section is written as an independent HTML file under `/sections/`.
-- **Single-Page Experience**: Smooth page transitions using asynchronous loading, no reloads.
-- **Dark Mode**: Built-in toggleable light/dark theme, remembers user preferences.
+- **Smooth Animations**: GPU-accelerated page transitions with fade-in/fade-out effects.
+- **Unified Card Layout**: Modern card-based design across all sections with hover effects and gradients.
+- **Dark Mode**: Built-in toggleable light/dark theme with dynamic icon switching, remembers user preferences.
+- **Performance Optimized**: GPU acceleration, will-change hints, and optimized CSS for 60fps animations.
+- **Interactive Elements**: Hover effects, tech tags, skill badges, and smooth micro-interactions.
 - **No Build Required**: Pure HTML/CSS/JS, no frameworks or dependencies. Just download and go.
 - **Desktop-First Design**: Optimized for desktop viewing; mobile users will see the full layout via scaling (not reflow).
 - **Fail-Safe UI**: Missing images automatically show fallback placeholders to prevent layout breakage.
@@ -30,10 +33,12 @@ PROJECT_ROOT/
 │       ├── router.js         # Handles SPA-like navigation
 │       └── main.js           # Theme switch, initialization
 ├── sections/
-│   ├── about.html
-│   ├── awards.html
-│   ├── projects.html
-│   └── ... (other pages)
+│   ├── about.html             # Personal info with card layout
+│   ├── research.html          # Research projects with tech tags
+│   ├── projects.html          # Project showcase with enhanced cards
+│   ├── awards.html            # Awards and certifications
+│   ├── hobbies.html           # Hobbies with skill badges
+│   └── blogs.html             # Blog section (coming soon)
 ├── index.html                # Entry point
 ├── README.md                 # English README
 └── README_CN.md              # Chinese README
@@ -130,6 +135,38 @@ Create `sections/teaching.html` with your content:
 
 ```html
 <img src="assets/img/my-project.jpg" alt="Project Screenshot">
+```
+
+## 🎨 UI Components
+
+### Card Layouts
+The template now uses unified card layouts across all sections:
+- **Info Cards** (`about.html`): Personal information in organized cards
+- **Research Cards** (`research.html`): Research projects with tech tags
+- **Award Cards** (`awards.html`): Achievements with icons and details
+- **Hobby Cards** (`hobbies.html`): Hobbies with skill badges
+
+### Interactive Elements
+- **Tech Tags**: Colorful badges for technologies and skills
+- **Hover Effects**: Cards lift up with enhanced shadows on hover
+- **Progress Bars**: Top green gradient bars appear on hover
+- **Dark Mode**: Seamless theme switching with icon changes
+
+### Example Card Structure
+```html
+<div class="info-card">
+  <h2>Card Title</h2>
+  <p>Your content here...</p>
+</div>
+
+<div class="research-card">
+  <h2>Research Title</h2>
+  <div class="tech-stack">
+    <span class="tech-tag">Technology</span>
+    <span class="tech-tag">Framework</span>
+  </div>
+  <p>Description...</p>
+</div>
 ```
 
 ## 💡 Tips
